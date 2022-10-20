@@ -4,7 +4,8 @@
 
 `<insert database schema design here>`
 
-## API Documentation
+## API Documentation<img width="990" alt="Screen Shot 2022-10-19 at 2 14 27 PM" src="https://user-images.githubusercontent.com/41271140/196805810-d22b9c87-f4a6-4710-8306-53287903a587.png">
+
 
 ## USER AUTHENTICATION/AUTHORIZATION
 
