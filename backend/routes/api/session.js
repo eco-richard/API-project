@@ -33,6 +33,6 @@ router.delete(
       res.clearCookie('token');
       return res.json({ message: 'success' });
     }
-  );
+);
 
 module.exports = router;
