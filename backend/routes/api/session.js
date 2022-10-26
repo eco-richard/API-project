@@ -6,6 +6,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
+// Login endpoint
 router.post(
     '/',
     async (req, res, next) => {
@@ -21,10 +22,15 @@ router.post(
         return next(err);
       }
 
-      await setTokenCookie(res, user);
+      const token = await setTokenCookie(res, user);
 
       return res.json({
-        user
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        username: user.username,
+        token
       });
     }
 );
@@ -37,6 +43,7 @@ router.delete(
     }
 );
 
+// Get current user endpoint
 router.get(
     '/',
     restoreUser,
