@@ -21,10 +21,10 @@ module.exports = {
     {
       spotId: 2,
       url: "image2",
-      preview: false
+      preview: true
     },
     {
-      spotId: 2,
+      spotId: 3,
       url: "image3",
       preview: true
     },
@@ -38,5 +38,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('SpotImages', null, {});
   }
 };

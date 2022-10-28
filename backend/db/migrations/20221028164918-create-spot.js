@@ -15,6 +15,7 @@ module.exports = {
         unique: true,
         references: {
           model: "Users",
+          onDelete: 'NO ACTION'
         }
       },
       address: {
