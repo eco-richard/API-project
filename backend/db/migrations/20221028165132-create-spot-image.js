@@ -2,52 +2,43 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('SpotImages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
-        type: Sequelize.STRING,
-<<<<<<< HEAD
+      spotId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-=======
-        allowNull: false
->>>>>>> dev
+        references: {
+          model: "Spots",
+          onDelete: 'CASCADE'
+        }
       },
-      lastName: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      username: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
-      },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
-      },
-      hashedPassword: {
+      url: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      preview: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('SpotImages');
   }
 };
