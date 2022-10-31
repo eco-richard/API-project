@@ -11,11 +11,7 @@ module.exports = {
       },
       firstName: {
         type: Sequelize.STRING,
-<<<<<<< HEAD
-        allowNull: false,
-=======
         allowNull: false
->>>>>>> dev
       },
       lastName: {
         type: Sequelize.STRING,
