@@ -21,7 +21,8 @@ async function findAverageRating(spot) {
     const reviews = await Review.findAll({
         where: {
             spotId: spot.id
-        }
+        },
+        attributes: ["stars"]
     })
 
     // Find the sum of all reviews
