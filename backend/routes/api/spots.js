@@ -348,19 +348,19 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
         return res.json(spotNotFound);
     }
 
-    const previousReview = await Review.findOne({
-        where: {
-            userId: req.user.id
-        }
-    })
+    // const previousReview = await Review.findOne({
+    //     where: {
+    //         userId: req.user.id
+    //     }
+    // })
 
-    if (previousReview) {
-        res.status(403);
-        return res.json({
-            "message": "User already has a review for this spot",
-            "statusCode": 403
-        })
-    }
+    // if (previousReview) {
+    //     res.status(403);
+    //     return res.json({
+    //         "message": "User already has a review for this spot",
+    //         "statusCode": 403
+    //     })
+    // }
 
     const newReview = await Review.create({
         userId: req.user.id,
