@@ -328,14 +328,18 @@ router.get("/:spotId/reviews", async (req, res) => {
 router.post("/:spotId/reviews", requireAuth, async (req, res) => {
     const { review, stars } = req.body;
 
-    if (!review) {
-        console.log("error")
+    if (!review || stars > 5 || stars < 1 || stars.toUpperCase != stars.toLowerCase) {
+        const err = {
+            "message": "Validation error",
+            "statusCode": 400,
+            "errors": {
+                "review": "Review text is required",
+                "stars": "Stars must be an integer from 1 to 5",
+              }
+        }
+        res.status(400);
+        res.json(err);
     }
-
-    if (stars > 5 || stars < 1 || stars.toUpperCase != stars.toLowerCase) {
-        console.log("error")
-    }
-
     const spot = await Spot.findByPk(req.params.spotId);
 
     // If no spot exists, return 404 error
