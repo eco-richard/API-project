@@ -26,7 +26,7 @@ const Sequelize = require('sequelize');
 // GET all review of the current user
 
 router.get("/current", requireAuth, async (req, res) => {
-    const reviews = await Review.findAll({
+    let reviews = await Review.findAll({
         where: {
             userId: req.user.id
         }
@@ -37,7 +37,7 @@ router.get("/current", requireAuth, async (req, res) => {
         reviewArray.push(review.toJSON());
     })
 
-    for (const review of reviewArray) {
+    for (let review of reviewArray) {
         const user = await User.findOne({
             where: {
                 id: review.userId
@@ -63,7 +63,7 @@ router.get("/current", requireAuth, async (req, res) => {
             ]
         })
 
-        spot = spot.toJSON;
+        spot = spot.toJSON();
         const previewImg = await findPreviewImg(spot);
         spot.previewImage = previewImg.url;
 
