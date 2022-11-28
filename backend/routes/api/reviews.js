@@ -62,6 +62,8 @@ router.get("/current", requireAuth, async (req, res) => {
                 "price"
             ]
         })
+
+        spot = spot.toJSON;
         const previewImg = await findPreviewImg(spot);
         spot.previewImage = previewImg.url;
 
