@@ -172,15 +172,15 @@ router.get('/:spotId', async (req, res) => {
         ]
     })
 
-    let owner = await User.findByPk(spot.ownerId, {
-        attributes: ["id", "firstName", "lastName"]
-    });
-
     // If no spot exists, return 404 error
     if (!spot) {
         res.status(404);
         res.json(spotNotFound);
     }
+
+    let owner = await User.findByPk(spot.ownerId, {
+        attributes: ["id", "firstName", "lastName"]
+    });
 
     spot = spot.toJSON();
     spot.numReviews = spot.Reviews ? spot.Reviews.length : 0;
