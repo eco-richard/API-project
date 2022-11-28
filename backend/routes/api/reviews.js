@@ -45,7 +45,7 @@ router.get("/current", requireAuth, async (req, res) => {
             attributes: ["id", "firstName", "lastName"]
         })
 
-        const spot = await Spot.findOne({
+        let spot = await Spot.findOne({
             where: {
                 id: review.spotId
             },
