@@ -164,13 +164,17 @@ router.get('/:spotId', async (req, res) => {
             {
                 model: SpotImage,
                 attributes: ["id", "url", "preview"]
-            },
-            {
-                model: User,
-                attributes: ["id", "firstName", "lastName"]
             }
+            // {
+            //     model: User,
+            //     attributes: ["id", "firstName", "lastName"]
+            // }
         ]
     })
+
+    let owner = await User.findByPk(spot.ownerId, {
+        attributes: ["id", "firstName", "lastName"]
+    });
 
     // If no spot exists, return 404 error
     if (!spot) {
@@ -186,7 +190,7 @@ router.get('/:spotId', async (req, res) => {
     } else {
         spot.avgStarRating = null
     }
-    spot.Owner = spot.User;
+    spot.Owner = owner;
 
     res.json(spot);
 })
