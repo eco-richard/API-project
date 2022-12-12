@@ -14,13 +14,13 @@ router.post(
 
       const user = await User.login({ credential, password });
 
-      if (!user) {
-        res.status(401);
-        res.json({
-          "message": "Invalid credentials",
-          "statusCode": 401
-        })
-      }
+      // if (!user) {
+      //   res.status(401);
+      //   res.json({
+      //     "message": "Invalid credentials",
+      //     "statusCode": 401
+      //   })
+      // }
 
       if (!user) {
         const err = new Error('Login failed');
