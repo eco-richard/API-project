@@ -48,7 +48,7 @@ router.get('/hello/world', function(req, res) {
 if (process.env.NODE_ENV !== 'production') {
   router.get('/api/csrf/restore', (req, res) => {
     res.cookie('XSRF-TOKEN', req.csrfToken());
-    return res.json({});
+    return res.status(201).json({});
   });
 }
 
