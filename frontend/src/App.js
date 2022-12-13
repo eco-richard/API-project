@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 // import LoginFormPage from "./components/LoginFormPage";
 // import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
+import Spots from "./components/Spots";
 
 import * as sessionActions from "./store/session"
 
@@ -21,6 +22,7 @@ function App() {
     <Navigation isLoaded={isLoaded} />
     {isLoaded && ( 
     <Switch>
+      {/* <Spots /> */}
     </Switch>
     )}
     </>
