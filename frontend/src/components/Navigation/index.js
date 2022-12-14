@@ -14,9 +14,17 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
+      <>
       <li>
         <ProfileButton user={sessionUser} />
       </li>
+      <li>
+      <OpenModalButton
+      buttonText="Create a Spot"
+      modalComponent={<SpotFormModal />}
+      />
+      </li>
+      </>
     );
   } else {
     sessionLinks = (
@@ -28,10 +36,6 @@ function Navigation({ isLoaded }){
         <OpenModalButton
           buttonText="Sign Up"
           modalComponent={<SignupFormModal />}
-        />
-        <OpenModalButton
-          buttonText="Create a Spot"
-          modalComponent={<SpotFormModal />}
         />
       </li>
     );

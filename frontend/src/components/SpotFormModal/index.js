@@ -14,8 +14,8 @@ function SpotFormModal() {
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [country, setCountry] = useState("");
-    const [latitude, setLatitude] = useState("");
-    const [longitude, setLongitude] = useState("");
+    const [lat, setLat] = useState("");
+    const [lng, setLng] = useState("");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(1);
@@ -40,8 +40,8 @@ function SpotFormModal() {
             city, 
             state, 
             country, 
-            latitude, 
-            longitude,
+            lat, 
+            lng,
             price 
             })).then(closeModal).catch(async res => {
                 const data = await res.json();
@@ -114,8 +114,8 @@ function SpotFormModal() {
                 Latitude
                 <input
                   type="number"
-                  value={latitude}
-                  onChange={e => setLatitude(e.target.value)}
+                  value={lat}
+                  onChange={e => setLat(e.target.value)}
                   required
                 />
             </label>
@@ -123,8 +123,8 @@ function SpotFormModal() {
                 Longitude
                 <input
                   type="number"
-                  value={longitude}
-                  onChange={e => setLongitude(e.target.value)}
+                  value={lng}
+                  onChange={e => setLng(e.target.value)}
                   required
                 />
             </label>

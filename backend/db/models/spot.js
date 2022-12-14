@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     ownerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true
+      // unique: true
     },
     address: {
       type: DataTypes.STRING,
