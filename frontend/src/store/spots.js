@@ -28,9 +28,9 @@ const update = (spot) => ({
     spot
 })
 
-const remove = (spot) => ({
+const remove = (spotId) => ({
     type: DELETE_SPOT,
-    spot
+    spotId
 })
 
 // Thunk Action Creators
@@ -65,7 +65,7 @@ export function getSingleSpot(spotId) {
 }
 
 
-export function addSpot(spot) {
+export function addSpot(spot, imgUrl) {
     return async (dispatch) => {
         const res = await csrfFetch("/api/spots", {
             method: "POST",
@@ -75,42 +75,49 @@ export function addSpot(spot) {
             body: JSON.stringify(spot)
         });
 
+
         if (res.ok) {
-            const spots = await res.json();
-            dispatch(add(spots));
-            return spots;
+            const spot = await res.json();
+            const imgObject = {url: imgUrl, preview: true};
+            const imgResponse = await csrfFetch(`/api/spots/${spot.id}/images`, {
+                method: "POST",
+                body: JSON.stringify(imgObject)
+            })
+            dispatch(add(spot));
+            return spot;
         }
     }
 };
 
-export function updateSpot(spot) {
+export function updateSpot(spotData, spotId) {
     return async (dispatch) => {
-        const res = await csrfFetch(`/api/spots/${spot.id}`, {
+        console.log("SpotData from updateSpot: ", spotData);
+        console.log("SpotId from updateSpots: ", spotId);
+        const res = await csrfFetch(`/api/spots/${spotId}`, {
             method: "PUT", 
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(spot)
+            body: JSON.stringify(spotData)
         })
 
         if (res.ok) {
-            const spots = await res.json();
-            dispatch(update(spots))
-            return spots;
-
+            const spot = await res.json();
+            dispatch(update(spot))
+            return spot;
         }
     }
 }
 
-export function deleteSpot(spot) {
+export function deleteSpot(spotId) {
     return async (dispatch) => {
-        const res = await csrfFetch(`/api/spots/${spot.id}`, {
+        const res = await csrfFetch(`/api/spots/${spotId}`, {
             method: "DELETE"
         })
 
         if (res.ok) {
             const spots = await res.json();
-            dispatch(remove(spots))
+            dispatch(remove(spotId))
             return spots;
         }
     }
@@ -132,14 +139,15 @@ export default function spotsReducer(state = initialState, action) {
             newState.singleSpot = action.spot;
             return newState;
         case ADD_SPOT:
-            newState[action.spots.spot.id] = action.spot.spot
+            newState[action.spot.id] = action.spot;
             return newState;
         case UPDATE_SPOT:
-            delete newState.action.spot;
+            newState = {...state, singleSpot : {}}
+            newState.singleSpot = action.spot;
             return newState;
         case DELETE_SPOT:
-            newState = { ...state }
-            delete newState.action.spot;
+            newState = { ...state, allSpots: {...state.allSpots}, singleSpot: {} }
+            delete newState.allSpots[action.spotId];
             return newState;
         default:
             return state;

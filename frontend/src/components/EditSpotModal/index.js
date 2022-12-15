@@ -1,63 +1,62 @@
-import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
-import * as spotActions from "../../store/spots"
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
-import './SpotForm.css';
 
-function SpotFormModal() {
+// import { getSingleSpot } from "../../store/spots";
+import { updateSpot } from "../../store/spots";
+
+const EditSpotModal = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
-    
-    // Hooks for creating a spot:
-    const [address, setAddress] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [country, setCountry] = useState("");
-    const [lat, setLat] = useState("");
-    const [lng, setLng] = useState("");
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState(1);
+    const { spotId } = useParams();
+
+    const spotObj = useSelector(state => state.spots);
+    const spot = spotObj.singleSpot;
+    console.log("Spot from EditSpot: ", spot)
+
+    const [address, setAddress] = useState(spot.address);
+    const [city, setCity] = useState(spot.city);
+    const [state, setState] = useState(spot.state);
+    const [country, setCountry] = useState(spot.country);
+    const [lat, setLat] = useState(spot.lat);
+    const [lng, setLng] = useState(spot.lng);
+    const [name, setName] = useState(spot.name);
+    const [description, setDescription] = useState(spot.description);
+    const [price, setPrice] = useState(spot.price);
     const [errors, setErrors] = useState([]);
-    const [previewImgUrl, setPreviewImgUrl] = useState(""); 
     const { closeModal } = useModal();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validation Checking:
-        if (name === "") {
-            return setErrors(["A name must be provided."])
-        }
-
-        // Others:
-
-        setErrors([]);
-        await dispatch(spotActions.addSpot({
-            name, 
-            description,
+        await dispatch(updateSpot({
+            name,
+            description, 
             address, 
-            city, 
+            city,
             state, 
-            country, 
-            lat, 
+            country,
+            lat,
             lng,
-            price 
-            }, previewImgUrl)).then(closeModal)
+            price
+        }, spot.id))
+
+        closeModal();
     }
 
     return (
-        <>
-        <h1>Create a Spot</h1>
+        <div className="edit-spot-form">
+        <h1>Edit Spot</h1>
         <form onSubmit={handleSubmit}>
             <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error, index) => <li key={index}>error</li>)}
             </ul>
-            <label>
+        <label>
                 Name
                 <input
                   type="text"
+                  placeholder="name"
                   value={name}
                   onChange={e => setName(e.target.value)}
                   required
@@ -135,19 +134,10 @@ function SpotFormModal() {
                   required
                 />
             </label>
-            <label>
-                Image
-                <input
-                 type="url"
-                 value={previewImgUrl}
-                 onChange={e => setPreviewImgUrl(e.target.value)}
-                 required
-                 />
-            </label>
-            <button type="submit">Create</button>
+            <button type="submit">Submit</button>
         </form>
-        </>
+        </div>
     )
 }
 
-export default SpotFormModal;
+export default EditSpotModal
