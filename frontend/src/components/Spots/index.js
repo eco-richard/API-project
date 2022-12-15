@@ -5,8 +5,10 @@ import SpotItem from "../SpotItem";
 import { getSpots } from '../../store/spots';
 
 const Spots = () => {
-    const spotsObj = useSelector(state => state.spots);
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
+    const spotsObj = useSelector(state => state.spots);
+
     console.log("SpotsObj: ", spotsObj);
     useEffect(() => {
         dispatch(getSpots());
@@ -17,14 +19,12 @@ const Spots = () => {
 
     return (
         <div className="spots-main">
-            {
-                spots.map((spot) => (
+                {spots.map((spot) => (
                     <SpotItem
                     spot={spot}
                     key={spot.id}
                     />
-                ))
-            }
+                ))}
         </div>
     )
 }
