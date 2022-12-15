@@ -139,7 +139,8 @@ export default function spotsReducer(state = initialState, action) {
             newState.singleSpot = action.spot;
             return newState;
         case ADD_SPOT:
-            newState[action.spot.id] = action.spot;
+            newState = {...state, allSpots: {...state.allSpots}}
+            newState.allSpots[action.spot.id] = action.spot
             return newState;
         case UPDATE_SPOT:
             newState = {...state, singleSpot : {}}

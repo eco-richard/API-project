@@ -276,6 +276,13 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
         res.json(spotNotFound);
     }
 
+    if (spot.ownerId !== req.user.id) {
+        res.status(403);
+        res.json({
+            "message": "Forbidden"
+        })
+    }
+
     await spot.destroy();
 
     res.json({
