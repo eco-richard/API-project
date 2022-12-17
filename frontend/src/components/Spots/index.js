@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import SpotItem from "../SpotItem";
 import { getSpots } from '../../store/spots';
-
+import "./Spots.css"
 const Spots = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)

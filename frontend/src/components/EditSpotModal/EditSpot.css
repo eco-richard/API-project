@@ -1,11 +1,10 @@
 
-.create-spot-form {
+.edit-spot-form {
     display: flex;
     flex-direction: column;
     width: 600px;
     margin: auto 10px;
     justify-content: center;
-    /* align-items: center; */
 }
 
 .form-field {
@@ -13,12 +12,13 @@
     height: 50px;
 }
 
-.create-spot-form-header img {
+
+.edit-spot-form-header img {
     margin-left: 5px;
     padding-top: 5px;
 }
 
-.create-spot-form-header span {
+.edit-spot-form-header span {
     font-size: 25px;
 }
 

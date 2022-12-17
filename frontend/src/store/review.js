@@ -1,12 +1,23 @@
 import { csrfFetch } from "./csrf";
 
 const GET_REVIEWS = "reviews/GET_REVIEWS"
-const ADD_REVIEW = "reviews/ADD_REVIEWS"
+const ADD_REVIEW = "reviews/ADD_REVIEW"
 const DELETE_REVIEW = "reviews/DELETE_REVIEW"
 
-const get = (reviews, userId, spotId) => ({
+const get = (reviews) => ({
     type: GET_REVIEWS,
     reviews,
+})
+
+const add = (review, spotId) => ({
+    type: ADD_REVIEW,
+    review,
+    spotId
+})
+
+const remove = (reviewId) => ({
+    type: DELETE_REVIEW,
+    reviewId
 })
 
 export function getSpotReviews(spotId) {
@@ -21,7 +32,7 @@ export function getSpotReviews(spotId) {
     }
 }
 
-export function addReview(review, imgUrl, spotId) {
+export function addReview(review, spotId) {
     return async (dispatch) => {
         const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
             method: "POST",
@@ -29,14 +40,17 @@ export function addReview(review, imgUrl, spotId) {
             body: JSON.stringify(review)
         })
 
-        if (res.ok) {
+        if (res.ok && res.statusCode === 200) {
             const review = res.json();
-            const imgObj = {url: imgUrl};
-            const imgResponse = await csrfFetch(`/api/reviews/${review.id}/images`, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(imgObj)
-            })
+            // const imgObj = {url: imgUrl};
+            // const imgResponse = await csrfFetch(`/api/reviews/${review.id}/images`, {
+            //     method: "POST",
+            //     headers: {"Content-Type": "application/json"},
+            //     body: JSON.stringify(imgObj)
+            // })
+            dispatch(add(review, spotId))
+        } else if (res.statusCode === 403) {
+            return "Forbidden";
         }
     }
 }

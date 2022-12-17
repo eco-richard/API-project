@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 
-// import { getSingleSpot } from "../../store/spots";
 import { updateSpot } from "../../store/spots";
-
+import './EditSpot.css'
 const EditSpotModal = () => {
     const dispatch = useDispatch();
     const { spotId } = useParams();
@@ -19,8 +18,8 @@ const EditSpotModal = () => {
     const [city, setCity] = useState(spot.city);
     const [state, setState] = useState(spot.state);
     const [country, setCountry] = useState(spot.country);
-    const [lat, setLat] = useState(spot.lat);
-    const [lng, setLng] = useState(spot.lng);
+    // const [lat, setLat] = useState(spot.lat);
+    // const [lng, setLng] = useState(spot.lng);
     const [name, setName] = useState(spot.name);
     const [description, setDescription] = useState(spot.description);
     const [price, setPrice] = useState(spot.price);
@@ -37,8 +36,8 @@ const EditSpotModal = () => {
             city,
             state, 
             country,
-            lat,
-            lng,
+            lat: 100,
+            lng: 100,
             price
         }, spot.id))
 
@@ -46,15 +45,58 @@ const EditSpotModal = () => {
     }
 
     return (
-        <div className="edit-spot-form">
-        <h1>Edit Spot</h1>
-        <form onSubmit={handleSubmit}>
+      <>
+        <form onSubmit={handleSubmit} className="edit-spot-form">
+          <div className="edits-spot-form-header">
+            <img src="https://www.vhv.rs/dpng/d/487-4871907_grey-x-icon-png-transparent-png.png" height="20px" weight="20px" alt="x" onClick={() => closeModal()} />
+            <span>Modify Spot</span>
+          </div>
             <ul>
                 {errors.map((error, index) => <li key={index}>error</li>)}
             </ul>
-        <label>
-                Name
+            <label>
                 <input
+                  className="form-field"
+                  type="text"
+                  value={address}
+                  onChange={e => setAddress(e.target.value)}
+                  required
+                  placeholder="Address"
+                />
+            </label>
+            <label>
+                <input
+                  className="form-field"
+                  type="text"
+                  value={city}
+                  onChange={e => setCity(e.target.value)}
+                  required
+                  placeholder="City"
+                />
+            </label>
+            <label>
+                <input
+                  className="form-field"
+                  type="text"
+                  value={state}
+                  onChange={e => setState(e.target.value)}
+                  required
+                  placeholder="State"
+                />
+            </label>
+            <label>
+                <input
+                  className="form-field"
+                  type="text"
+                  value={country}
+                  onChange={e => setCountry(e.target.value)}
+                  required
+                  placeholder="Country"
+                />
+            </label>
+            <label>
+                <input
+                  className="form-field"
                   type="text"
                   placeholder="name"
                   value={name}
@@ -63,51 +105,16 @@ const EditSpotModal = () => {
                 />
             </label>
             <label>
-                Description
                 <input
+                  className="form-field"
                   type="text"
                   value={description}
                   onChange={e => setDescription(e.target.value)}
                   required
+                  placeholder="Description"
                 />
             </label>
-            <label>
-                Address
-                <input
-                  type="text"
-                  value={address}
-                  onChange={e => setAddress(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
-                City
-                <input
-                  type="text"
-                  value={city}
-                  onChange={e => setCity(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
-                State
-                <input
-                  type="text"
-                  value={state}
-                  onChange={e => setState(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
-                Country
-                <input
-                  type="text"
-                  value={country}
-                  onChange={e => setCountry(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
+            {/* <label>
                 Latitude
                 <input
                   type="number"
@@ -124,19 +131,20 @@ const EditSpotModal = () => {
                   onChange={e => setLng(e.target.value)}
                   required
                 />
-            </label>
+            </label> */}
             <label>
-                Price
                 <input
+                className="form-field"
                   type="number"
                   value={price}
                   onChange={e => setPrice(e.target.value)}
                   required
+                  placeholder="Price per night"
                 />
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" className="spot-submit-button">Submit</button>
         </form>
-        </div>
+        </>
     )
 }
 

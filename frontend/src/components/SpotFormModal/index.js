@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import * as spotActions from "../../store/spots"
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
-import './SpotForm.css';
+import './SpotForm.css'
 
 function SpotFormModal() {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function SpotFormModal() {
     const [lng, setLng] = useState("");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [price, setPrice] = useState(1);
+    const [price, setPrice] = useState();
     const [errors, setErrors] = useState([]);
     const [previewImgUrl, setPreviewImgUrl] = useState(""); 
     const { closeModal } = useModal();
@@ -41,74 +41,63 @@ function SpotFormModal() {
             city, 
             state, 
             country, 
-            lat, 
-            lng,
+            lat: 100, 
+            lng: 100,
             price 
             }, previewImgUrl)).then(closeModal)
     }
 
     return (
         <>
-        <h1>Create a Spot</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="create-spot-form">
+          <div className="create-spot-form-header">
+            <img src="https://www.vhv.rs/dpng/d/487-4871907_grey-x-icon-png-transparent-png.png" height="20px" weight="20px" alt="x" onClick={() => closeModal()} />
+            <span>Create a Spot</span>
+          </div>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
-                Name
                 <input
-                  type="text"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
-                Description
-                <input
-                  type="text"
-                  value={description}
-                  onChange={e => setDescription(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
-                Address
-                <input
+                  className="form-field"
                   type="text"
                   value={address}
                   onChange={e => setAddress(e.target.value)}
                   required
+                  placeholder="Address"
                 />
             </label>
             <label>
-                City
                 <input
+                  className="form-field"
                   type="text"
                   value={city}
                   onChange={e => setCity(e.target.value)}
                   required
+                  placeholder="City"
                 />
             </label>
             <label>
-                State
                 <input
+                  className="form-field"
                   type="text"
                   value={state}
                   onChange={e => setState(e.target.value)}
                   required
+                  placeholder="State"
                 />
             </label>
             <label>
-                Country
                 <input
+                  className="form-field"
                   type="text"
                   value={country}
                   onChange={e => setCountry(e.target.value)}
                   required
+                  placeholder="Country"
                 />
             </label>
-            <label>
+            {/* <label>
                 Latitude
                 <input
                   type="number"
@@ -125,26 +114,48 @@ function SpotFormModal() {
                   onChange={e => setLng(e.target.value)}
                   required
                 />
+            </label> */}
+            <label>
+                <input
+                  className="form-field"
+                  type="text"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  required
+                  placeholder="Name"
+                />
             </label>
             <label>
-                Price
                 <input
+                  className="form-field"
+                  type="text"
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+                  required
+                  placeholder="Description"
+                />
+            </label>
+            <label>
+                <input
+                  className="form-field"
                   type="number"
                   value={price}
                   onChange={e => setPrice(e.target.value)}
                   required
+                  placeholder="Price per night"
                 />
             </label>
             <label>
-                Image
                 <input
+                 className="form-field"
                  type="url"
                  value={previewImgUrl}
                  onChange={e => setPreviewImgUrl(e.target.value)}
                  required
+                 placeholder="Image URL"
                  />
             </label>
-            <button type="submit">Create</button>
+            <button type="submit" className="spot-submit-button">Create</button>
         </form>
         </>
     )

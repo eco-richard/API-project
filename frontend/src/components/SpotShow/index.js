@@ -5,8 +5,9 @@ import { getSingleSpot } from "../../store/spots";
 import EditSpotModal from "../EditSpotModal";
 import OpenModalButton from "../OpenModalButton";
 import DeleteSpotModal from "../DeleteSpotModal";
-
+import Review from "../Reviews";
 import SpotItem from "../SpotItem";
+
 const SpotShow = () => {
     const dispatch = useDispatch();
     const { spotId } = useParams();
@@ -48,6 +49,9 @@ const SpotShow = () => {
             buttonText="Delete Spot"
             modalComponent={<DeleteSpotModal spotId={spotId} />}
             />
+            <div className="review-wrapper">
+                <Review spotId={spotId} />
+            </div>
         </div>
     )
 }

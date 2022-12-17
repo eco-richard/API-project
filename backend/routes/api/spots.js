@@ -336,7 +336,7 @@ router.get("/:spotId/reviews", async (req, res) => {
 })
 
 // Create a review for a spot based on spotsId
-router.post("/:spotId/reviews", requireAuth, async (req, res) => {
+router.post("/:spotId/reviews", /*requireAuth */ async (req, res) => {
     const { review, stars } = req.body;
 
     if (!review || stars > 5 || stars < 1 || stars.toUpperCase != stars.toLowerCase) {
@@ -359,12 +359,35 @@ router.post("/:spotId/reviews", requireAuth, async (req, res) => {
         return res.json(spotNotFound);
     }
 
-    const previousReview = await Review.findOne({
+    
+    // const previousReview = await Review.findOne({
+    //     where: {
+    //         userId: req.user.id
+    //     }
+    // })
+
+    const allReviews = await Review.findAll({
         where: {
-            userId: req.user.id
+            spotId:req.params.spotId
         }
+    });
+    
+    const reviewArray = [];
+    allReviews.forEach(review => {
+        reviewArray.push(review.toJSON());
     })
 
+    let previousReview;
+    for (let review of reviewArray) {
+        if (review.userId === req.user.id) {
+            previousReview = review;
+        }
+    }
+    
+    console.log("UserId: ", req.user.id);
+    if (previousReview) {
+        console.log("Previous Review userId: ", previousReview.userId);
+    }
     if (previousReview) {
         res.status(403);
         return res.json({
