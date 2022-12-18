@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .logo {
     width: 50px;
     height: auto;
@@ -9,9 +13,11 @@
     height: 100px;
     align-items: center;
     width: 100%;
+    justify-content: space-around;
 }
 .nav-left {
     width: 400px;
+    height: 100px;
     display: flex;
     justify-content: left;
 }
@@ -19,7 +25,7 @@
 .nav-right {
     display: flex;
     justify-content: right;
-    height: 30px;
+    height: 100px;
 }
 
 a:visited {

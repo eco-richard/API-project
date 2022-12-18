@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import ProfileButton from './ProfileButton';
 import OpenModalButton from "../OpenModalButton";
 import SpotFormModal from '../SpotFormModal'
+import LoginFormModal from '../LoginFormModal';
 import Logo from '../../images/skull-logo.png'
 import './Navigation.css';
 
@@ -21,7 +22,13 @@ function Navigation({ isLoaded }){
         </Link>
       </div>
       <div className='nav-right'>
-        {sessionUser && (<OpenModalButton
+        {sessionUser ?  (
+        <OpenModalButton
+        buttonText="Host thy home"
+        modalComponent={<LoginFormModal />}
+        />
+        ) : (
+          <OpenModalButton
         buttonText="Host thy home"
         modalComponent={<SpotFormModal />}
         />
@@ -51,3 +58,28 @@ function Navigation({ isLoaded }){
 }
 
 export default Navigation;
+
+// import React from 'react';
+// import { NavLink } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import ProfileButton from './ProfileButton';
+// import './Navigation.css';
+
+// function Navigation({ isLoaded }){
+//   const sessionUser = useSelector(state => state.session.user);
+
+//   return (
+//     <ul>
+//       <li>
+//         <NavLink exact to="/">Home</NavLink>
+//       </li>
+//       {isLoaded && (
+//         <li>
+//           <ProfileButton user={sessionUser} />
+//         </li>
+//       )}
+//     </ul>
+//   );
+// }
+
+// export default Navigation;
