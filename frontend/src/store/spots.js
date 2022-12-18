@@ -58,6 +58,7 @@ export function getSingleSpot(spotId) {
 
         if (res.ok) {
             let spot = await res.json()
+            console.log("Spot from getSingleSpot: ", spot);
             dispatch(getSpot(spot))
             return spot;
         }
@@ -137,6 +138,7 @@ export default function spotsReducer(state = initialState, action) {
         case GET_SPOT:
             newState = {...state, singleSpot: {}}
             newState.singleSpot = action.spot;
+            console.log("Single spot from reducer: ", newState.singleSpot)
             return newState;
         case ADD_SPOT:
             newState = {...state, allSpots: {...state.allSpots}}

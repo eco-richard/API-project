@@ -1,0 +1,119 @@
+
+.spot-images-container {
+    border-radius: 12px;
+    position: relative;
+    height: 43vw;
+    max-height: 560px;
+    overflow: hidden;
+    margin: 18px auto 0 auto;
+    max-width: 1120px;
+}
+
+.spot-image-left {
+    height: 100%;
+    width: 50%;
+    left: 0px;
+    top: 0px;
+    position: absolute
+}
+.spot-image-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spot-images-right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 50%;
+    padding-left: 6px;
+    overflow: hidden;
+    left: 50%;
+    top: 0px;
+    position: absolute;
+    margin: 1px;
+}
+
+.image-grid-top-left {
+    height: 50%;
+    width: 50%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.image-grid-bottom-left {
+    height: 50%;
+    width: 50%;
+    top: 50%;
+    left: 0px;
+    position: absolute;
+}
+
+.image-grid-top-right {
+    height: 50%;
+    width: 50%;
+    top: 0px;
+    left: 50%;
+    position: absolute;
+}
+
+.image-grid-bottom-right {
+    height: 50%;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+
+* > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spot-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.location-header {
+    display: flex;
+    justify-content: center;
+}
+
+.price-box {
+    border: solid lightgrey;
+    border-radius: 10px;
+    width: 300px;
+    position: sticky;
+    margin-top: 50px;
+    /* margin-bottom: 50px; */
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding: 25px 25px;
+}
+
+.review-wrapper {
+    margin: 50px 200px; 
+}
+.spot-show {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    padding: 30px 40px;
+}
+
+.price-box-left {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.price-box-right {
+    font-size: 20px;
+}

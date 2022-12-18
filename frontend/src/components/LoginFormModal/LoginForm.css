@@ -1,0 +1,26 @@
+
+.form-field {
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto 10px;
+    justify-content: center;
+}
+
+.submit-button {
+    height: 50px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    align-items: center;
+    margin: 30px auto;
+    border-style: none;
+    border-radius: 5px;
+    
+}

@@ -9,7 +9,7 @@ export default function SpotItem({ spot }) {
 
     return (
         <div>
-            <Link to={`/api/spots/${spot.id}`}>
+            <Link to={`/spots/${spot.id}`}>
                 <div className="spot-box" key={spot.id}>
                     <div className="spot-image-div">
                         <img src={spot.previewImage} alt="spot"/>
@@ -17,6 +17,9 @@ export default function SpotItem({ spot }) {
                     <div className="spot-data">
                         <div className="spot-location">
                             {spot.city}, {spot.state}{country}
+                        </div>
+                        <div className="spot-host">
+                            Hosted by a Romantic
                         </div>
                         <div className="spot-price">
                             ${spot.price} night

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from 'react-router-dom';
-
-// import LoginFormPage from "./components/LoginFormPage";
-// import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import Spots from "./components/Spots";
 import SpotShow from "./components/SpotShow";
@@ -24,7 +21,7 @@ function App() {
     {isLoaded && ( 
     <Switch>
       <Route exact path="/" component={Spots} />
-      <Route exact path="/api/spots/:spotId" component={SpotShow} />
+      <Route exact path="/spots/:spotId" component={SpotShow} />
     </Switch>
     )}
     </>

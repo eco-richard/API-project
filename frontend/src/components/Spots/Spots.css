@@ -1,8 +1,7 @@
 
 .spots-main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* justify-content: center;
-    align-items: center; */
+    display: grid;
+    grid-auto-flow: row dense;
+    width: 100px;
+    padding: 30px;
 }

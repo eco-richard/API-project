@@ -25,6 +25,26 @@ module.exports = {
       preview: true
     },
     {
+      spotId: 1,
+      url: "https://live.staticflickr.com/2870/10001508933_21d057d397_b.jpg",
+      preview: false
+    },
+    {
+      spotId: 1,
+      url: "https://live.staticflickr.com/2870/10001508933_21d057d397_b.jpg",
+      preview: false
+    },
+    {
+      spotId: 1,
+      url: "https://live.staticflickr.com/2870/10001508933_21d057d397_b.jpg",
+      preview: false
+    },
+    {
+      spotId: 1,
+      url: "https://live.staticflickr.com/2870/10001508933_21d057d397_b.jpg",
+      preview: false
+    },
+    {
       spotId: 2,
       url: "https://imgs.search.brave.com/TBUtEPt2Q8dSHvqJtBWKyG1UXj_RSKA8vrJOY6enIsw/rs:fit:1200:1152:1/g:ce/aHR0cHM6Ly93d3cu/cHJpY2V5cGFkcy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjAvMTEvSG91c2Vf/b2ZfdGhlX1NldmVu/X0dhYmxlc19mcm9u/dF9hbmdsZV8tX1Nh/bGVtX01hc3NhY2h1/c2V0dHMtMTUzNngx/MTUyLmpwZw",
       preview: true
