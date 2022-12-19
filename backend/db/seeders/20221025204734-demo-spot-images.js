@@ -44,9 +44,14 @@ module.exports = {
       url: "https://live.staticflickr.com/2870/10001508933_21d057d397_b.jpg",
       preview: false
     },
+    // {
+    //   spotId: 2,
+    //   url: "https://imgs.search.brave.com/TBUtEPt2Q8dSHvqJtBWKyG1UXj_RSKA8vrJOY6enIsw/rs:fit:1200:1152:1/g:ce/aHR0cHM6Ly93d3cu/cHJpY2V5cGFkcy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjAvMTEvSG91c2Vf/b2ZfdGhlX1NldmVu/X0dhYmxlc19mcm9u/dF9hbmdsZV8tX1Nh/bGVtX01hc3NhY2h1/c2V0dHMtMTUzNngx/MTUyLmpwZw",
+    //   preview: true
+    // },
     {
       spotId: 2,
-      url: "https://imgs.search.brave.com/TBUtEPt2Q8dSHvqJtBWKyG1UXj_RSKA8vrJOY6enIsw/rs:fit:1200:1152:1/g:ce/aHR0cHM6Ly93d3cu/cHJpY2V5cGFkcy5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjAvMTEvSG91c2Vf/b2ZfdGhlX1NldmVu/X0dhYmxlc19mcm9u/dF9hbmdsZV8tX1Nh/bGVtX01hc3NhY2h1/c2V0dHMtMTUzNngx/MTUyLmpwZw",
+      url: "https://tinyurl.com/yc3mrk6e",
       preview: true
     },
     {
@@ -69,9 +74,14 @@ module.exports = {
       url: "http://www.decorationlove.com/wp-content/uploads/2016/04/Custom-Victorian-Bedroom-Design.jpg",
       preview: false
     },
+    // {
+    //   spotId: 3,
+    //   url: "https://imgs.search.brave.com/OYnosvmaYk9toKF3d9ERkC6DWZvxvdm2fOstrrfW71w/rs:fit:1200:836:1/g:ce/aHR0cHM6Ly93d3cu/aG9tZXN0cmF0b3Nw/aGVyZS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMTgvMDcv/TWFuemFuYXJlcy1l/bC1SZWFsLUNhc3Rs/ZS5qcGc",
+    //   preview: true
+    // },
     {
       spotId: 3,
-      url: "https://imgs.search.brave.com/OYnosvmaYk9toKF3d9ERkC6DWZvxvdm2fOstrrfW71w/rs:fit:1200:836:1/g:ce/aHR0cHM6Ly93d3cu/aG9tZXN0cmF0b3Nw/aGVyZS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMTgvMDcv/TWFuemFuYXJlcy1l/bC1SZWFsLUNhc3Rs/ZS5qcGc",
+      url: "https://tinyurl.com/yckndtmh",
       preview: true
     },
     {
