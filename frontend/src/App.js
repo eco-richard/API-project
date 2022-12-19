@@ -17,7 +17,9 @@ function App() {
 
   return (
     <>
+    <hr />
     <Navigation isLoaded={isLoaded} />
+    <hr />
     {isLoaded && ( 
     <Switch>
       <Route exact path="/" component={Spots} />

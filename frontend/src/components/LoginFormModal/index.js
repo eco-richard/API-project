@@ -32,49 +32,44 @@ function LoginFormModal() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className='login-form-header'>  
-        <div className='close-out-button-div'>
+    <div className="login-form-wrapper">
+      <div className='login-form-header'>
           <button className="close-out-button" onClick={closeModal}>
-            {(<i className="fa-solid fa-x"></i>)}
+            <i className="fa-solid fa-x"></i>
           </button>
-        </div>
-        <div className='login-form-title-wrapper'>
-        <div className='login-form-title'>Log In!</div>
-        </div>
-        </div>
-        <div className='errors-list'>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        </div>
-        <label>
+          <p>Log In</p>
+      </div>
+      <div className="login-form-fields">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <ul className='errors-list'>
+            {errors.map((error, idx) => (
+              <li className="error-item" key={idx}>
+                {error}
+              </li>
+            ))}
+          </ul>
           <input
-          className='form-field'
             type="text"
+            placeholder="Username"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
-            placeholder='Username or Email'
+            className="form-field-1"
           />
-        </label>
-        <label>
-          <input
-            className='form-field'
+          <input        
             type="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            placeholder='Password'
+            className="form-field-2"
           />
-        </label>
-        <button type="submit" className='submit-button'>Log In</button>
-      </form>
-    </>
-  );
+
+          <button className="submit-button" type="submit">Log In</button>
+        </form>
+      </div>
+    </div>
+  )
 }
 
 export default LoginFormModal;

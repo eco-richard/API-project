@@ -10,10 +10,10 @@
 .nav {
     display: flex;
     flex-direction: row;
-    height: 100px;
+    height: 60px;
     align-items: center;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .nav-left {
     width: 400px;
@@ -36,7 +36,6 @@ a:visited {
 a {
     text-decoration: none;
     color: grey;
-    
 }
 
 i {
@@ -96,6 +95,11 @@ i {
 }
 
 .site-logo {
-    height: 120%;
-    width: 120%;
+    height: 110%;
+    width: 110%;
+}
+
+.profile-button-div {
+    float: right;
+    align-self: center;
 }

@@ -1,0 +1,74 @@
+
+.form-field-1 {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.form-field-2 {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-top: -1px;
+}
+
+
+.login-form input {
+    font-size: 16px;
+    padding: 15px 10px;
+    border: 1px solid rgb(161, 161, 161);
+    outline: none;
+    width: 96%;
+}
+
+.loginform-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid rgb(227, 227, 227);
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
+
+.close-out-button {
+    background: none;
+    border: 0;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto 10px;
+    justify-content: center;
+}
+
+.submit-button {
+    height: 50px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    align-items: center;
+    margin: 30px auto;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(240, 70, 25);   
+}
+
+.login-form-title-wrapper {
+    margin-right: 275px;
+}
+
+p {
+    display: grid;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: 700;
+    font-size: 24px;
+    place-items: center;
+    align-self: center;
+}

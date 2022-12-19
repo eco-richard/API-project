@@ -16,16 +16,9 @@ const SpotShow = () => {
 
     const previewImgURL = spot.SpotImages?.find(image => image.preview)?.url;
     const nonPreviewImgs = spot.SpotImages?.filter(image => !image.preview);
-    // console.log("Spot IMages[0]: ", spotImages[0]);
-    // for (let i = 0; i < spotImages.length; i++) {
-    //     const image = spotImages[0];
-    //     if (image.preview) {
-    //         previewImage = image;
-    //         break;
-    //     }
-    // }
 
     const reviewsObj = useSelector(state => state.reviews.spot);
+    console.log("Reviews Obj: ", reviewsObj)
     const reviews = Object.values(reviewsObj);
 
     let numReviews = 0;
@@ -88,16 +81,16 @@ const SpotShow = () => {
                 <img className="spot-image-left" src={previewImgURL} alt="img-1" />
                 <div className="spot-images-right">
                     <div className="image-grid-top-left">
-                        {nonPreviewImgs ?  (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )} 
+                        {!!nonPreviewImgs && ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )} 
                     </div>
                     <div className="image-grid-bottom-left">
-                        {nonPreviewImgs ? (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
+                        {!!nonPreviewImgs && ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
                     </div>
                     <div className="image-grid-top-right">
-                        {nonPreviewImgs ? (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
+                        {!!nonPreviewImgs && ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
                     </div>
                     <div className="image-grid-bottom-right">
-                        {nonPreviewImgs ? (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
+                        {!!nonPreviewImgs && ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
                     </div>
                 </div>
             </div>
