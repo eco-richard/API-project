@@ -50,9 +50,49 @@ module.exports = {
       preview: true
     },
     {
+      spotId: 2,
+      url: "http://www.decorationlove.com/wp-content/uploads/2016/04/Custom-Victorian-Bedroom-Design.jpg",
+      preview: false
+    },
+    {
+      spotId: 2,
+      url: "http://www.decorationlove.com/wp-content/uploads/2016/04/Custom-Victorian-Bedroom-Design.jpg",
+      preview: false
+    },
+    {
+      spotId: 2,
+      url: "http://www.decorationlove.com/wp-content/uploads/2016/04/Custom-Victorian-Bedroom-Design.jpg",
+      preview: false
+    },
+    {
+      spotId: 2,
+      url: "http://www.decorationlove.com/wp-content/uploads/2016/04/Custom-Victorian-Bedroom-Design.jpg",
+      preview: false
+    },
+    {
       spotId: 3,
       url: "https://imgs.search.brave.com/OYnosvmaYk9toKF3d9ERkC6DWZvxvdm2fOstrrfW71w/rs:fit:1200:836:1/g:ce/aHR0cHM6Ly93d3cu/aG9tZXN0cmF0b3Nw/aGVyZS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMTgvMDcv/TWFuemFuYXJlcy1l/bC1SZWFsLUNhc3Rs/ZS5qcGc",
       preview: true
+    },
+    {
+      spotId: 3,
+      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      preview: false
+    },
+    {
+      spotId: 3,
+      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      preview: false
+    },
+    {
+      spotId: 3,
+      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      preview: false
+    },
+    {
+      spotId: 3,
+      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      preview: false
     },
    ])
   },
