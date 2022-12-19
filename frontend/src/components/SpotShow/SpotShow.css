@@ -52,6 +52,7 @@
     top: 50%;
     left: 0px;
     position: absolute;
+    
 }
 
 .image-grid-top-right {
@@ -74,11 +75,17 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    padding: 5px;
 }
 
 .spot-info {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
+    flex-direction: row;
+    /* grid-template-columns: 2fr 1fr; */
+    /* place-content: center; */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto 0;
 }
 
 .location-header {
@@ -100,7 +107,9 @@
 }
 
 .review-wrapper {
-    margin: 50px 200px; 
+    /* margin: 50px 200px;  */
+    width: 66%;
+    max-width: 650px;
 }
 .spot-show {
     /* display: flex;
@@ -116,4 +125,14 @@
 
 .price-box-right {
     font-size: 20px;
+}
+
+.review-wrapper {
+    position: relative;
+    left: 5%;
+}
+
+.price-box-wrapper {
+    position: relative;
+    right: 15%;
 }

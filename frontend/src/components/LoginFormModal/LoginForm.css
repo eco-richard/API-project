@@ -21,6 +21,26 @@
     align-items: center;
     margin: 30px auto;
     border-style: none;
-    border-radius: 5px;
-    
+    border-radius: 5px;   
+}
+
+.close-out-button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.login-form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 40%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px;
+}
+
+.login-form-title-wrapper {
+    margin-right: 275px;
 }

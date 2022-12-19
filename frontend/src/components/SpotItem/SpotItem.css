@@ -3,12 +3,20 @@
 
 .spot-image-div {
     display: flex;
-    height: 120px;
-    width: 120px;
+    height: 15vw;
+    max-width: 400px;
     border-radius: 20px;
     padding: 10px;
 }
 
-.spot-box {
+.spot-preview-image {
+    border-radius: 10px;
+}
+.spot-location {
+    font-weight: bold;
+}
+
+.spot-data {
+    margin-left: 14px;
 }
 

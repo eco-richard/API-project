@@ -17,7 +17,7 @@
 }
 .nav-left {
     width: 400px;
-    height: 100px;
+    height: 50px;
     display: flex;
     justify-content: left;
 }
@@ -25,7 +25,7 @@
 .nav-right {
     display: flex;
     justify-content: right;
-    height: 100px;
+    height: 50px;
 }
 
 a:visited {
@@ -43,8 +43,59 @@ i {
     padding: 5px;
 }
 
-.site-name {
+.site-title {
     padding: 5px;
     color: black;
     font-weight: bold;
+    font-family: cursive;
+    font-style: italic;
+    position:absolute;
+    left: 17%;
+    top: 30px;
+}
+
+.host-thy-home-button {
+    font-size: 14px;
+    font-weight: 500;
+    background: white;
+    border: 0;
+    margin-right: -10px;
+    border-radius: 50px;
+    height: 40px;
+}
+
+.host-thy-home-button:hover {
+    background: rgb(235, 235, 235);
+}
+
+.host-thy-home-div {
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 100px;
+    color: grey;
+    background: white;
+    height: 70%;
+}
+
+.profile-dropdown {
+    background: white;
+    width: 242px;
+    position: absolute;
+    font-size: 14px;
+    top: 70px;
+    right: 39px;
+    border-radius: 10px;
+}
+
+.site-logo {
+    height: 120%;
+    width: 120%;
 }

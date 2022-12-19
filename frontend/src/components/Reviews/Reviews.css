@@ -1,0 +1,19 @@
+.review-header {
+    font-size: 1.35em;
+    font-weight: bold;
+}
+
+.reviewer-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.review-date {
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+.review-text {
+    padding: 10px;
+    font-size: 18px;
+}

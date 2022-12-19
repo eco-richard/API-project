@@ -42,7 +42,7 @@ const CreateReviewModal = ({spotId}) => {
         }
 
         setErrors(errors);
-    }, [previousReview, stars, errors])
+    }, [previousReview, errors])
     const handleSubmit = async (e) => {
         e.preventDefault();
 

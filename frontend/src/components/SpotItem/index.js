@@ -12,7 +12,7 @@ export default function SpotItem({ spot }) {
             <Link to={`/spots/${spot.id}`}>
                 <div className="spot-box" key={spot.id}>
                     <div className="spot-image-div">
-                        <img src={spot.previewImage} alt="spot"/>
+                        <img className="spot-preview-image" src={spot.previewImage} alt="spot"/>
                     </div>
                     <div className="spot-data">
                         <div className="spot-location">

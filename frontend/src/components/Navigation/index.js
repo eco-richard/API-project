@@ -1,85 +1,50 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import ProfileButton from './ProfileButton';
+// Navigation/index.js
+
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import ProfileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton";
-import SpotFormModal from '../SpotFormModal'
-import LoginFormModal from '../LoginFormModal';
-import Logo from '../../images/skull-logo.png'
-import './Navigation.css';
+import SpotFormModal from "../SpotFormModal";
+import LoginFormModal from "../LoginFormModal";
+import SignupFormModal from "../SignupFormModal";
+import Logo from "../../images/logo.png";
 
-function Navigation({ isLoaded }){
-  const sessionUser = useSelector(state => state.session.user);
-  const [showSpotFormModal, setShowSpotFormModal] = useState(false);
+import "./Navigation.css"
 
-  return (
-    <nav className='nav'>
-      <div className='nav-left'>
-        <Link to="/">
-          <i className="fa-solid fa-skull fa-2xl"></i>
-          <span className='site-name'>AirBorNot2B</span>
-        </Link>
-      </div>
-      <div className='nav-right'>
-        {sessionUser ?  (
-        <OpenModalButton
-        buttonText="Host thy home"
-        modalComponent={<LoginFormModal />}
-        />
-        ) : (
-          <OpenModalButton
-        buttonText="Host thy home"
-        modalComponent={<SpotFormModal />}
-        />
-        )}
-        {isLoaded && (
-          <div className='profile-button'>
-            <ProfileButton user={sessionUser} />
-          </div> 
-        )}
-      </div>
-    </nav>
-  )
-  return (
-    <nav className='nav'>
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-      </li>
-      {isLoaded && (
-        <li>
-          <ProfileButton user={sessionUser} />
-        </li>
-      )}
-    </ul>
-    </nav>
-  );
+function Navigation({ isLoaded }) {
+    const sessionUser = useSelector(state => state.session.user);
+
+    return (
+        <nav className="nav">
+            <div className="nav-left">
+                <Link to="/">
+                    <img className="site-logo" alt="logo" src={Logo} />
+                </Link>
+            </div>
+            <div className="nav-right">
+                <div className="create-spot-div">
+                    {sessionUser ? (
+                        <OpenModalButton
+                        className="create-spot-button"
+                        buttonText="Host thy Home"
+                        modalComponent={<SpotFormModal />}
+                        />
+                    ) : (
+                        <OpenModalButton
+                        className="create-spot-button"
+                        buttonText="Host thy Home"
+                        modalComponent={<LoginFormModal />}
+                        />
+                    )}
+                </div>
+                <div className="profile-button-div">
+                    <ProfileButton className="profile-button" user={sessionUser}/>
+                </div>
+            </div>
+        </nav>
+    )
 }
 
 export default Navigation;
-
-// import React from 'react';
-// import { NavLink } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import ProfileButton from './ProfileButton';
-// import './Navigation.css';
-
-// function Navigation({ isLoaded }){
-//   const sessionUser = useSelector(state => state.session.user);
-
-//   return (
-//     <ul>
-//       <li>
-//         <NavLink exact to="/">Home</NavLink>
-//       </li>
-//       {isLoaded && (
-//         <li>
-//           <ProfileButton user={sessionUser} />
-//         </li>
-//       )}
-//     </ul>
-//   );
-// }
-
-// export default Navigation;

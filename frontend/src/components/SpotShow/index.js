@@ -15,10 +15,11 @@ const SpotShow = () => {
     const spot = useSelector(state => state.spots.singleSpot);
 
     const previewImgURL = spot.SpotImages?.find(image => image.preview)?.url;
-    const nonPreviewImgs = spot.SpotImages?.filter(image => !image.preview);
+    console.log("SpotIMages: ", spot.SpotImages);
+    let nonPreviewImgs;
+    nonPreviewImgs = spot.SpotImages?.filter(image => !image.preview);
     console.log("Non-preview Images: ", nonPreviewImgs);
     // console.log("Spot IMages[0]: ", spotImages[0]);
-    let previewImage;
     // for (let i = 0; i < spotImages.length; i++) {
     //     const image = spotImages[0];
     //     if (image.preview) {
@@ -64,7 +65,9 @@ const SpotShow = () => {
                 </ul>
             })} */}
             <div className="location-header">
+                <div className="spot-name-div">
                 <h1>{spot.name}</h1>
+                </div>
                 <div className="spot-show-location-rating">
                     {numReviews} review{numReviews === 1 ? "" : 's'} · {spot.city}, {spot.state}, {spot.country}
                 </div>
@@ -103,6 +106,7 @@ const SpotShow = () => {
             </div>
             <div className="spot-info">
                 <div className="review-wrapper">
+                    <hr />
                     <Review spotId={spotId} />
                 </div>
                 <div className="price-box-wrapper">
@@ -111,7 +115,7 @@ const SpotShow = () => {
                             ${spot.price} night
                         </div>
                         <div className="price-box-right">
-                            <i className="fa-regular fa-star"></i>{avgRating} · {numReviews} review{numReviews === 1 ? "" : 's'} 
+                            <i className="fa-regular fa-star"></i>{avgRating.toFixed(2)} · {numReviews} review{numReviews === 1 ? "" : 's'} 
                         </div>
 
                     </div>

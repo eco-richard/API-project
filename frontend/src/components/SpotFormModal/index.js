@@ -51,7 +51,6 @@ function SpotFormModal() {
         <>
         <form onSubmit={handleSubmit} className="create-spot-form">
           <div className="create-spot-form-header">
-            <img src="https://www.vhv.rs/dpng/d/487-4871907_grey-x-icon-png-transparent-png.png" height="20px" weight="20px" alt="x" onClick={() => closeModal()} />
             <span>Create a Spot</span>
           </div>
             <ul>

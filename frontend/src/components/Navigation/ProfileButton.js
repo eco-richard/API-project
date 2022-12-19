@@ -4,6 +4,7 @@ import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import './Navigation.css'
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -45,10 +46,10 @@ function ProfileButton({ user }) {
           <i className="fa-solid fa-bars"></i>
           <i className="fas fa-user-circle fa-xl" />
         </button>
+        <div className="profile-dropdown-div">
         <ul className={ulClassName} ref={ulRef}>
           {user && user.id ? (
             <>
-
               <li>{user.username}</li>
               <li>{user.firstName} {user.lastName}</li>
               <li>{user.email}</li>
@@ -79,6 +80,7 @@ function ProfileButton({ user }) {
             </>
           )}
         </ul>
+        </div>
       </>
     );
 }

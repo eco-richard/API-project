@@ -54,6 +54,20 @@ export function addReview(review, spotId) {
         }
     }
 }
+
+export function deleteReview({reviewId}) {
+    return async (dispatch) => {
+        console.log("Review ID: ", reviewId);
+        const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+            method: "DELETE"
+        })
+
+        if (res.ok) {
+            const response = res.json();
+            dispatch(remove(reviewId))
+        }
+    }
+}
 // Reviews Reducer
 
 const initialState = {spot: {}, user: {}}
@@ -71,6 +85,10 @@ export default function reviewsReducer(state = initialState, action) {
             return newState;
         case ADD_REVIEW:
             newState = { ...state, spot: {...state.spot}, user: {...state.user}}
+            return newState;
+        case DELETE_REVIEW:
+            newState = { ...state, spot: {...state.spot}, user: {...state.user}};
+            delete newState.spot[action.reviewId]
             return newState;
         default:
             return state;

@@ -33,13 +33,24 @@ function LoginFormModal() {
 
   return (
     <>
-      <h1>Log In</h1>
       <form onSubmit={handleSubmit} className="login-form">
+        <div className='login-form-header'>  
+        <div className='close-out-button-div'>
+          <button className="close-out-button" onClick={closeModal}>
+            {(<i className="fa-solid fa-x"></i>)}
+          </button>
+        </div>
+        <div className='login-form-title-wrapper'>
+        <div className='login-form-title'>Log In!</div>
+        </div>
+        </div>
+        <div className='errors-list'>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
+        </div>
         <label>
           <input
           className='form-field'
