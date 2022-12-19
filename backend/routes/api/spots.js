@@ -384,9 +384,9 @@ router.post("/:spotId/reviews", /*requireAuth */ async (req, res) => {
         }
     }
     
-    console.log("UserId: ", req.user.id);
+    // console.log("UserId: ", req.user.id);
     if (previousReview) {
-        console.log("Previous Review userId: ", previousReview.userId);
+        // console.log("Previous Review userId: ", previousReview.userId);
     }
     if (previousReview) {
         res.status(403);

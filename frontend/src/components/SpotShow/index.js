@@ -15,10 +15,7 @@ const SpotShow = () => {
     const spot = useSelector(state => state.spots.singleSpot);
 
     const previewImgURL = spot.SpotImages?.find(image => image.preview)?.url;
-    console.log("SpotIMages: ", spot.SpotImages);
-    let nonPreviewImgs;
-    nonPreviewImgs = spot.SpotImages?.filter(image => !image.preview);
-    console.log("Non-preview Images: ", nonPreviewImgs);
+    const nonPreviewImgs = spot.SpotImages?.filter(image => !image.preview);
     // console.log("Spot IMages[0]: ", spotImages[0]);
     // for (let i = 0; i < spotImages.length; i++) {
     //     const image = spotImages[0];
@@ -91,16 +88,16 @@ const SpotShow = () => {
                 <img className="spot-image-left" src={previewImgURL} alt="img-1" />
                 <div className="spot-images-right">
                     <div className="image-grid-top-left">
-                        {nonPreviewImgs && <img src={nonPreviewImgs[0].url} alt="1" />}
+                        {nonPreviewImgs ?  (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )} 
                     </div>
                     <div className="image-grid-bottom-left">
-                        {nonPreviewImgs && <img src={nonPreviewImgs[1].url} alt="1" />}
+                        {nonPreviewImgs ? (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
                     </div>
                     <div className="image-grid-top-right">
-                        {nonPreviewImgs && <img src={nonPreviewImgs[2].url} alt="1" />}
+                        {nonPreviewImgs ? (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
                     </div>
                     <div className="image-grid-bottom-right">
-                        {nonPreviewImgs && <img src={nonPreviewImgs[3].url} alt="1" />}
+                        {nonPreviewImgs ? (<div className="none"></div>) : ( <img src={nonPreviewImgs[0]?.url} alt="1" /> )}
                     </div>
                 </div>
             </div>
