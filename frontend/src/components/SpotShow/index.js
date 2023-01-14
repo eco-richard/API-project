@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleSpot } from "../../store/spots";
-import EditSpotModal from "../EditSpotModal";
-import OpenModalButton from "../OpenModalButton";
-import DeleteSpotModal from "../DeleteSpotModal";
 import SpotShowHeader from "./SpotShowHeader";
 import SpotShowImages from "./SpotShowImages";
+import SpotShowInfo from "./SpotShowInfo";
 import Review from "../Reviews";
 import './SpotShow.css'
 
@@ -47,10 +45,12 @@ const SpotShow = () => {
 
     // console.log("SpotShow spot: ", spot);
     if (Object.values(spot).length === 0) return null;
+
     return (
         <div className="spot-show">
             <SpotShowHeader spot={spot} />
             <SpotShowImages spot={spot} />
+            <SpotShowInfo spot={spot} />
             <div className="spot-info">
                 <div className="review-wrapper">
                     <hr />

@@ -5,6 +5,7 @@ import DeleteSpotModal from "../../DeleteSpotModal";
 
 function SpotShowHeader({ spot }) {
     const sessionUser = useSelector(state => state.session.user)
+    console.log("Spot: ", spot);
 
     const ratingContent = spot.avgStarRating === null ? (
         <p>No reviews yet</p>
