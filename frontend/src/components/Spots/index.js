@@ -4,27 +4,27 @@ import { useSelector, useDispatch } from 'react-redux'
 import SpotItem from "../SpotItem";
 import { getSpots } from '../../store/spots';
 import "./Spots.css"
+
 const Spots = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user)
-    const spotsObj = useSelector(state => state.spots);
+    // Get the spots object from the store.spots slice of state
+    const spotsObj = useSelector(state => state.spots.allSpots);
+    // Convert the spotsObj into an array
+    const spots = Object.values(spotsObj);
 
-    console.log("SpotsObj: ", spotsObj);
+    // console.log("SpotsObj from Spots component: ", spotsObj);
     useEffect(() => {
         dispatch(getSpots());
     }, [dispatch])
 
-    const spots = Object.values(spotsObj.allSpots);
-    console.log("Spots: ", spots);  
-
     return (
         <div className="spots-main">
-                {spots.map((spot) => (
-                    <SpotItem
-                    spot={spot}
-                    key={spot.id}
-                    />
-                ))}
+            {spots.map((spot) => (
+                <SpotItem
+                spot={spot}
+                key={spot.id}
+                />
+            ))}
         </div>
     )
 }
