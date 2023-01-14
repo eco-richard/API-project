@@ -52,10 +52,6 @@ const SpotShow = () => {
             <SpotShowImages spot={spot} />
             <SpotShowInfo spot={spot} />
             <div className="spot-info">
-                <div className="review-wrapper">
-                    <hr />
-                    <Review spotId={spotId} />
-                </div>
                 <div className="price-box-wrapper">
                     <div className="price-box">
                         <div className="price-box-left">

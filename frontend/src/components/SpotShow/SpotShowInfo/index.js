@@ -1,3 +1,6 @@
+import Review from "../../Reviews";
+import PriceBox from "../PriceBox";
+
 function SpotShowInfo({ spot }) {
     // let avgRating = spot.avgStarRating ===
     const ratingContent = spot.avgStarRating === null ? (
@@ -19,8 +22,14 @@ function SpotShowInfo({ spot }) {
                 {/* <i className="fa-solid fa-star" /> {spot.avgStarRating} · {spot.numReviews === 1 ? `${spot.numReviews} review` : `${spot.numReviews} reviews`} */}
                 {ratingContent}
                 </h2>
-                {ratingBody}
+                <hr />
+                {ratingBody ? (
+                    ratingBody
+                ) : (
+                    <Review spotId={spot.id} />
+                )}
             </div>
+            <PriceBox spot={spot} />
         </div>
     )
 }
