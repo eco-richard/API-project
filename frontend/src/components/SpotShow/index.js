@@ -5,7 +5,6 @@ import { getSingleSpot } from "../../store/spots";
 import SpotShowHeader from "./SpotShowHeader";
 import SpotShowImages from "./SpotShowImages";
 import SpotShowInfo from "./SpotShowInfo";
-import Review from "../Reviews";
 import './SpotShow.css'
 
 const SpotShow = () => {

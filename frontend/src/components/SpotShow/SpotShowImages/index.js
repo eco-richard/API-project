@@ -1,3 +1,5 @@
+import './SpotShowImages.css';
+
 function SpotShowImages({ spot }) {
     const noImageURL = "https://www.clydeinc.com/wp-content/uploads/no_photo_yet.jpg";
     const previewImgURL = spot.SpotImages?.find(spotImg => spotImg.preview === true).url;
