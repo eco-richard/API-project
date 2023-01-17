@@ -1,12 +1,19 @@
 
 /* CSS */
 
+.spot-box {
+    max-width: 350px;
+}
 .spot-image-div {
     display: flex;
     height: 15vw;
-    max-width: 400px;
+    max-width: 100%;
     border-radius: 20px;
     padding: 10px;
+}
+
+.spot-image-div > img {
+    max-width: 100%;
 }
 
 .spot-preview-image {

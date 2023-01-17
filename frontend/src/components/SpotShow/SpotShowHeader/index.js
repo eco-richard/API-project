@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import OpenModalButton from "../../OpenModalButton";
 import EditSpotModal from "../../EditSpotModal";
 import DeleteSpotModal from "../../DeleteSpotModal";
+import './SpotShowHeader.css'
 
 function SpotShowHeader({ spot }) {
     const sessionUser = useSelector(state => state.session.user)
@@ -11,7 +12,7 @@ function SpotShowHeader({ spot }) {
         <p>No reviews yet</p>
     ) : (
         <>
-        <i className="fa-solid fa-star" /> {spot.avgStarRating}·{spot.numReviews === 1 ? `${spot.numReviews} review` : `${spot.numReviews} reviews`}
+        <i className="fa-solid fa-star" /> {spot.avgStarRating}·{spot.numReviews === 1 ? `${spot.numReviews} review ` : `${spot.numReviews} reviews `}
         </>
     )
 

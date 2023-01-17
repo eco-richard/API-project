@@ -53,6 +53,18 @@ i {
     top: 30px;
 }
 
+.create-spot-button {
+    font-size: 14px;
+    font-weight: 500;
+    background: white;
+    border: 0;
+    margin-right: -10px;
+    border-radius: 50px;
+    height: 40px;
+}
+.create-spot-button:hover {
+    background: rgb(235, 235, 235); 
+}
 .host-thy-home-button {
     font-size: 14px;
     font-weight: 500;
