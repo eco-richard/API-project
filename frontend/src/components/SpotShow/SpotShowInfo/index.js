@@ -1,5 +1,6 @@
 import Review from "../../Reviews";
 import PriceBox from "../PriceBox";
+import './SpotShowInfo.css'
 
 function SpotShowInfo({ spot }) {
     // let avgRating = spot.avgStarRating ===
