@@ -40,27 +40,33 @@ function ProfileButton({ user }) {
     };
 
     const ulClassName = ("profile-dropdown") + (showMenu ? "" : " hidden");
-
+    const hidden = showMenu ? "" : "hidden";
     return (
       <>
         <button className="button-container" onClick={openMenu ? openMenu : setShowMenu(false)}>
           <i className="fa-solid fa-bars"></i>
           <i className="fas fa-user-circle fa-xl" />
         </button>
-        <div className="profile-dropdown-div">
+        <div className={`profile-dropdown-div ${hidden}`}>
         <ul className={ulClassName} ref={ulRef}>
           {user && user.id ? (
             <>
-              <li>{user.username}</li>
+              <div className="dropdown-username">
+                <li>{user.username}</li>
+              </div>
+              <div className="dropdown-fullname">
               <li>{user.firstName} {user.lastName}</li>
+              </div>
+              <div className="dropdown-email">
               <li>{user.email}</li>
-              <>
+              </div>
+              <div className="dropdown-logout-div">
                 <button id="logout-button" onClick={logout}>
                   <div id="logout-text">
                     Log Out
                   </div>
                   </button>
-              </>
+              </div>
             </>
           ) : (
             <>
