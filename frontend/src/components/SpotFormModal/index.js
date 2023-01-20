@@ -3,10 +3,12 @@ import * as sessionActions from "../../store/session";
 import * as spotActions from "../../store/spots"
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { useHistory } from "react-router-dom";
 import './SpotForm.css'
 
 function SpotFormModal() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     
     // Hooks for creating a spot:
@@ -14,11 +16,11 @@ function SpotFormModal() {
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [country, setCountry] = useState("");
-    const [lat, setLat] = useState("");
-    const [lng, setLng] = useState("");
+    // const [lat, setLat] = useState("");
+    // const [lng, setLng] = useState("");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [price, setPrice] = useState();
+    const [price, setPrice] = useState("");
     const [errors, setErrors] = useState([]);
     const [previewImgUrl, setPreviewImgUrl] = useState(""); 
     const { closeModal } = useModal();
@@ -34,17 +36,21 @@ function SpotFormModal() {
         // Others:
 
         setErrors([]);
-        await dispatch(spotActions.addSpot({
-            name, 
-            description,
-            address, 
-            city, 
-            state, 
-            country, 
-            lat: 100, 
-            lng: 100,
-            price 
-            }, previewImgUrl)).then(closeModal)
+        const newSpot = await dispatch(spotActions.addSpot({
+          name, 
+          description,
+          address, 
+          city, 
+          state, 
+          country, 
+          lat: 100, 
+          lng: 100,
+          price 
+        }, previewImgUrl));
+        closeModal();
+
+        console.log("NewSpot:", newSpot);
+        history.push(`/spots/${newSpot.id}`);
     }
 
     return (

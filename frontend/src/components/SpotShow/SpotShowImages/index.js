@@ -21,12 +21,12 @@ function SpotShowImages({ spot }) {
     return (
         <div className="spot-show-images-wrapper">
             <div className="spot-show-main-image-wrapper">
-                <img className="spot-show-main-image" src={previewImgURL} alt="main"/>
+                <img className="spot-show-main-image fill-width fill-height" src={previewImgURL} alt="main"/>
             </div>
             <div className="spot-show-image-grid">
                 {nonPreviewImgsURLs.map(url => gridCounter < 5 && (
                     <img 
-                    className={`spot-show-grid-${++gridCounter}`}
+                    className={`spot-show-grid-${++gridCounter} fill-width fill-height`}
                     key={gridCounter}
                     src={url} alt={`grid-${gridCounter}`} 
                     />

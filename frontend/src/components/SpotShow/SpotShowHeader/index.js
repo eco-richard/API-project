@@ -9,7 +9,7 @@ function SpotShowHeader({ spot }) {
     console.log("Spot: ", spot);
 
     const ratingContent = spot.avgStarRating === null ? (
-        <p>No reviews yet</p>
+        <>No reviews yet </>
     ) : (
         <>
         <i className="fa-solid fa-star" /> {Math.round((spot.avgStarRating * 100) / 100).toFixed(2)} · {spot.numReviews === 1 ? `${spot.numReviews} review ` : `${spot.numReviews} reviews `}
@@ -22,7 +22,7 @@ function SpotShowHeader({ spot }) {
                 <h1>{spot.name}</h1>
             </div>
             <div className="spot-show-header-info">
-                <span className="header-reviews">
+                <span className="header-reviews-locale">
                     {ratingContent}
                     {/* {spot.avgRating && <i className="fa-solid fa-star"></i> {averageRating}} */}
                 </span>
@@ -39,7 +39,7 @@ function SpotShowHeader({ spot }) {
                         <OpenModalButton
                          className="delete-spot-button"
                          buttonText="Delete Spot"
-                         modalComponent={<DeleteSpotModal />}
+                         modalComponent={<DeleteSpotModal spotId={spot.id}/>}
                         />
                     </div>
                 )}

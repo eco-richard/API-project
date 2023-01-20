@@ -93,7 +93,25 @@ i {
     top: 70px;
     right: 39px;
     border-radius: 10px;
+    border: 2px solid grey;
+    padding: 2px;
+    width: 145px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
 }
+
+.profile-dropdown li {
+    list-style-type: none;
+    /* border-bottom: 1px solid black; */
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+/* 
+.profile-dropdown-div {
+    border: 2px solid grey;
+} */
 
 .site-logo {
     height: 110%;
