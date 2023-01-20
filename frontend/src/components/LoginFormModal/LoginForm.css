@@ -60,7 +60,7 @@
     margin-right: 275px;
 }
 
-p {
+.login-form-header p {
     display: grid;
     margin-block-start: 1em;
     margin-block-end: 1em;

@@ -12,7 +12,7 @@ const EditSpotModal = () => {
 
     const spotObj = useSelector(state => state.spots);
     const spot = spotObj.singleSpot;
-    console.log("Spot from EditSpot: ", spot)
+    // console.log("Spot from EditSpot: ", spot)
 
     const [address, setAddress] = useState(spot.address);
     const [city, setCity] = useState(spot.city);

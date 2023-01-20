@@ -13,7 +13,7 @@ const DeleteSpotModal = (spotId) => {
     // const spotId = useParams();
     const spotObj = useSelector(state => state.spots);
     const spot = spotObj.singleSpot;
-    console.log("SpotId from delete:", spot.id);
+    // console.log("SpotId from delete:", spot.id);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

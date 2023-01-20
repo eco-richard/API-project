@@ -24,8 +24,10 @@
 
 .nav-right {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     height: 50px;
+    width: 175px;
+    align-items: center;
 }
 
 a:visited {
@@ -53,7 +55,7 @@ i {
     top: 30px;
 }
 
-.host-thy-home-button {
+.create-spot-button {
     font-size: 14px;
     font-weight: 500;
     background: white;
@@ -62,9 +64,8 @@ i {
     border-radius: 50px;
     height: 40px;
 }
-
-.host-thy-home-button:hover {
-    background: rgb(235, 235, 235);
+.create-spot-button:hover {
+    background: rgb(235, 235, 235); 
 }
 
 .host-thy-home-div {

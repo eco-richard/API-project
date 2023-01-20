@@ -6,6 +6,8 @@ import { useModal } from "../../context/Modal"
 
 function SingleReview({review, sessionUser, spotId}) {
     const { closeModal } = useModal(); 
+    // console.log("Single Review: ", review);
+    // console.log("Single Review id: ", review.id);
     if (!review?.id) return (
         <div className="no-reviews">
             This spot has yet to be reviewed.
@@ -15,19 +17,19 @@ function SingleReview({review, sessionUser, spotId}) {
     return (
         <div className="review-box">
             <div className="reviewer-name">
-                review?.User.firstName
+                {review?.User.firstName}
             </div>
             <div className="review-data">
-                review?.review
+                {review?.review}
             </div>
-            {review?.User.id === +sessionUser.id && 
+            {/* {review?.User.id === +sessionUser.id && 
             (<div className="delete-review-button">
-                <OpenModalButton
+                {<OpenModalButton
                     buttonText="Delete Review"
-                    modalComponent={<DeleteReviewModal reviewId={review.id} />}
+                    // modalComponent={<DeleteReviewModal reviewId={review.id} />}
                     onButtonClick={closeModal}
-                />
-            </div>)}
+                /> }
+            </div>)} */}
         </div>
     )
 }

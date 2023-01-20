@@ -17,7 +17,7 @@ const Review = ({spotId}) => {
     let reviews = useSelector(state => state.reviews.spot);
     reviews = Object.values(reviews);
     const spot = useSelector(state => state.spots.singleSpot);
-    console.log("Reviews: ", reviews);
+    // console.log("Reviews: ", reviews);
     
     useEffect(() => {
         dispatch(getSpotReviews(spotId));
@@ -57,15 +57,18 @@ const Review = ({spotId}) => {
                     <div className="reviews-head">
                         <h2>
                             <i className="fa-regular fa-star" />
-                            {avgRating.toFixed(2)} · {reviewCounter} reviews
+                            {(Math.round((avgRating * 100) / 100)).toFixed(2)} · {reviewCounter} reviews
                         </h2>
                     </div>
                 )}
             </div>
-            <button></button>
             <div className="reviews-body">
-                {reviews.map((rev) => (
-                    <SingleReview review={rev} sessionUser={sessionUser} spotId={spotId} />
+                {reviews.map((review) => (
+                    <SingleReview 
+                    key={review.id}
+                    review={review} 
+                    sessionUser={sessionUser} 
+                    spotId={spotId} />
                 ))}
             </div>
             {sessionUser && sessionUser.id !== +spot.ownerId && (<OpenModalButton

@@ -183,7 +183,14 @@ router.get('/:spotId', async (req, res) => {
     });
 
     spot = spot.toJSON();
-    spot.numReviews = spot.Reviews ? spot.Reviews.length : 0;
+    // Find reviews for the spots
+    const reviews = await Review.findAll({
+        where: {
+            spotId: spot.id
+        },
+    })
+
+    spot.numReviews = reviews.length;
     if (spot.numReviews > 0) {
         const avgRating = await findAverageRating(spot)
         spot.avgStarRating = avgRating;

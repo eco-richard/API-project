@@ -1,22 +1,42 @@
 
 /* CSS */
 
+.spot-box {
+    max-width: 350px;
+}
 .spot-image-div {
     display: flex;
     height: 15vw;
-    max-width: 400px;
+    max-width: 100%;
     border-radius: 20px;
     padding: 10px;
 }
+
+/* .spot-image-div > img {
+    max-width: 100%;
+} */
 
 .spot-preview-image {
     border-radius: 10px;
 }
 .spot-location {
     font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.spot-card-review {
+    padding-right: 10px;
+    font-weight: normal;
 }
 
 .spot-data {
     margin-left: 14px;
+}
+
+.spot-image-div img {
+    object-fit: cover;
+    width: 100%;
 }
 
