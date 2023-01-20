@@ -12,7 +12,7 @@ function SpotShowHeader({ spot }) {
         <p>No reviews yet</p>
     ) : (
         <>
-        <i className="fa-solid fa-star" /> {spot.avgStarRating}·{spot.numReviews === 1 ? `${spot.numReviews} review ` : `${spot.numReviews} reviews `}
+        <i className="fa-solid fa-star" /> {Math.round((spot.avgStarRating * 100) / 100).toFixed(2)} · {spot.numReviews === 1 ? `${spot.numReviews} review ` : `${spot.numReviews} reviews `}
         </>
     )
 
@@ -27,7 +27,7 @@ function SpotShowHeader({ spot }) {
                     {/* {spot.avgRating && <i className="fa-solid fa-star"></i> {averageRating}} */}
                 </span>
                 <span className="header-location">
-                    {`${spot.city}, ${spot.state}, ${spot.country}`}
+                · {`${spot.city}, ${spot.state}, ${spot.country}`}
                 </span>
                 {sessionUser && sessionUser.id === spot.ownerId && (
                     <div className="spot-owner-buttons">

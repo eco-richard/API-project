@@ -1,6 +1,7 @@
 
 .spot-show-info-wrapper {
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: space-between;
 }

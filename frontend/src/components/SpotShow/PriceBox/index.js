@@ -1,3 +1,5 @@
+import './PriceBox.css'
+
 function PriceBox({ spot }) {
     console.log("Spot: ", spot);
     return (

@@ -57,12 +57,11 @@ const Review = ({spotId}) => {
                     <div className="reviews-head">
                         <h2>
                             <i className="fa-regular fa-star" />
-                            {avgRating.toFixed(2)} · {reviewCounter} reviews
+                            {(Math.round((avgRating * 100) / 100)).toFixed(2)} · {reviewCounter} reviews
                         </h2>
                     </div>
                 )}
             </div>
-            <button></button>
             <div className="reviews-body">
                 {reviews.map((review) => (
                     <SingleReview 

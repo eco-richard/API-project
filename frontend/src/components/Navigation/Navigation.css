@@ -24,8 +24,10 @@
 
 .nav-right {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     height: 50px;
+    width: 175px;
+    align-items: center;
 }
 
 a:visited {
