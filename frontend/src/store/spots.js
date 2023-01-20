@@ -85,6 +85,8 @@ export function addSpot(spot, imgUrl) {
                 body: JSON.stringify(imgObject)
             })
             dispatch(add(spot));
+            // console.log("Spot from addSpot: ", spot);
+            spot.avgRating = null;
             return spot;
         }
     }

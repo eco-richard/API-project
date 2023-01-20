@@ -1,8 +1,9 @@
 
 .spots-main {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     width: 100%;
-    max-width: 1400px;
-    padding: 30px;
+    /* max-width: 1400px; */
+    padding: 20px;
+    /* margin: 0 auto; */
 }

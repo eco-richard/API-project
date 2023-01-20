@@ -7,6 +7,11 @@ export default function SpotItem({ spot }) {
     // const dispatch = useDispatch();
     const country = spot.country === "United States" ? "" : `, ${spot.country}`;
 
+    const spotCardReview = spot.avgRating === null ? null : (
+        <div className="spot-card-review">
+            <i className="fa-solid fa-star" />{(Math.round(spot.avgRating * 100) / 100).toFixed(2)}
+        </div>
+    )
     return (
         <div>
             <Link to={`/spots/${spot.id}`}>
@@ -17,9 +22,10 @@ export default function SpotItem({ spot }) {
                     <div className="spot-data">
                         <div className="spot-location">
                             {spot.city}, {spot.state}{country}
-                            <div className="spot-card-review">
+                            {spotCardReview}
+                            {/* <div className="spot-card-review">
                                 <i className="fa-solid fa-star" />{(Math.round(spot.avgRating * 100) / 100).toFixed(2)}
-                            </div>
+                            </div> */}
                         </div>
                         <div className="spot-host">
                             Hosted by a Romantic
