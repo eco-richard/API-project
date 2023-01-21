@@ -1,7 +1,6 @@
 import './PriceBox.css'
 
 function PriceBox({ spot }) {
-    console.log("Spot: ", spot);
     return (
         <div className="price-box-wrapper">
             <div className="price-box-header">

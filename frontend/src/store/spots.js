@@ -42,7 +42,6 @@ export function getSpots() {
         if (res.ok) {
             let spots = await res.json()
             spots = spots.Spots;
-            // console.log("Spots from getSpots()", spots);
             dispatch(get(spots))
             return spots;
         }
@@ -51,14 +50,12 @@ export function getSpots() {
 
 export function getSingleSpot(spotId) {
     return async (dispatch) => {
-        console.log("SpotId: ", spotId)
         const res = await csrfFetch(`/api/spots/${spotId}`, {
             method: "GET"
         });
 
         if (res.ok) {
             let spot = await res.json()
-            console.log("Spot from getSingleSpot: ", spot);
             dispatch(getSpot(spot))
             return spot;
         }
@@ -85,7 +82,6 @@ export function addSpot(spot, imgUrl) {
                 body: JSON.stringify(imgObject)
             })
             dispatch(add(spot));
-            // console.log("Spot from addSpot: ", spot);
             spot.avgRating = null;
             return spot;
         }
@@ -94,8 +90,6 @@ export function addSpot(spot, imgUrl) {
 
 export function updateSpot(spotData, spotId) {
     return async (dispatch) => {
-        console.log("SpotData from updateSpot: ", spotData);
-        console.log("SpotId from updateSpots: ", spotId);
         const res = await csrfFetch(`/api/spots/${spotId}`, {
             method: "PUT", 
             headers: {
@@ -140,7 +134,6 @@ export default function spotsReducer(state = initialState, action) {
         case GET_SPOT:
             newState = {...state, singleSpot: {}}
             newState.singleSpot = action.spot;
-            console.log("Single spot from reducer: ", newState.singleSpot)
             return newState;
         case ADD_SPOT:
             newState = {...state, allSpots: {...state.allSpots}}

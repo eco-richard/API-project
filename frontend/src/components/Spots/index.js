@@ -12,7 +12,6 @@ const Spots = () => {
     // Convert the spotsObj into an array
     const spots = Object.values(spotsObj);
 
-    // console.log("SpotsObj from Spots component: ", spotsObj);
     useEffect(() => {
         dispatch(getSpots());
     }, [dispatch])

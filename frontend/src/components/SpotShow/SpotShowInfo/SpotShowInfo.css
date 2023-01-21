@@ -5,3 +5,19 @@
     grid-template-columns: 2fr 1fr;
     justify-content: space-between;
 }
+
+.info-review-header-div {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+}
+
+.info-review-header-div button {
+    /* height: 50%; */
+    margin: 40px 20px;
+    background: none;
+    background-color: rgb(245, 90, 130);
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}

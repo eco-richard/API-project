@@ -49,7 +49,6 @@ function SpotFormModal() {
         }, previewImgUrl));
         closeModal();
 
-        console.log("NewSpot:", newSpot);
         history.push(`/spots/${newSpot.id}`);
     }
 

@@ -17,7 +17,6 @@ export function ModalProvider({ children }) {
       setOnModalClose(null);
       onModalClose();
     }
-    console.log("Closing Modal...");
   };
 
   const contextValue = {

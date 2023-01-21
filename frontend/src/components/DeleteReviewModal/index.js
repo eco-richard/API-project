@@ -12,16 +12,16 @@ const DeleteReviewModal = (reviewId) => {
     const dispatch = useDispatch()
     const history = useHistory();
     const { closeModal } = useModal();
+    const spot = useSelector(state => state.spots.singleSpot);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log("In handleSubmit of delete")
         await dispatch(deleteReview(reviewId));
         closeModal();
         // closeModal();
 
-        history.push('/');
+        history.push(`/spots/${spot.id}`);
     }
 
     return (

@@ -6,7 +6,6 @@ import './SpotShowHeader.css'
 
 function SpotShowHeader({ spot }) {
     const sessionUser = useSelector(state => state.session.user)
-    console.log("Spot: ", spot);
 
     const ratingContent = spot.avgStarRating === null ? (
         <>No reviews yet </>
