@@ -1,0 +1,19 @@
+
+.reviewer-header {
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+    height: 40px;
+    align-items: center;
+}
+
+.delete-review-div button {
+    background: none;
+    border: 1px solid black;
+    margin-left: 4px;
+    padding: 5px 3px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(245, 90, 130);
+    color: white;
+}

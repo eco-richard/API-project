@@ -7,6 +7,7 @@ import { useModal } from "../../context/Modal";
 
 import { getSingleSpot } from "../../store/spots";
 import { deleteReview } from "../../store/review";
+import './DeleteReviewModal.css';
 
 const DeleteReviewModal = (reviewId) => {
     const dispatch = useDispatch()
@@ -19,15 +20,15 @@ const DeleteReviewModal = (reviewId) => {
 
         await dispatch(deleteReview(reviewId));
         closeModal();
-        // closeModal();
-
-        history.push(`/spots/${spot.id}`);
+        await dispatch(getSingleSpot(spot.id));
     }
 
     return (
         <div className="delete-review-button-div">
             Are you sure you want to delete this review?
-            <button onClick={handleSubmit}>Delete</button>
+            <div className="delete-button-div">
+                <button onClick={handleSubmit}>Delete</button>
+            </div>
         </div>
     )
 }

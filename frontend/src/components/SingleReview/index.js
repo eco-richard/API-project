@@ -4,6 +4,7 @@ import DeleteReviewModal from "../DeleteReviewModal"
 import CreateReviewModal from "../CreateReviewModal"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
+import './SingleReview.css'
 
 function SingleReview({review, sessionUser, spotId}) {
     const { closeModal } = useModal();

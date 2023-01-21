@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleSpot } from "../../store/spots";
@@ -14,7 +14,7 @@ const SpotShow = () => {
 
     useEffect(() => {
         dispatch(getSingleSpot(spotId))
-    }, [spotId, dispatch])
+    }, [spotId, dispatch, spot.numReviews])
 
     if (Object.values(spot).length === 0) return null;
 
