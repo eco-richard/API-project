@@ -86,22 +86,22 @@ module.exports = {
     },
     {
       spotId: 3,
-      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      url: "https://tinyurl.com/2k5bwfzu",
       preview: false
     },
     {
       spotId: 3,
-      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      url: "https://tinyurl.com/2k5bwfzu",
       preview: false
     },
     {
       spotId: 3,
-      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      url: "https://tinyurl.com/2k5bwfzu",
       preview: false
     },
     {
       spotId: 3,
-      url: "http://www.projectderailed.com/wp-content/uploads/2016/05/italy-319186_1280.jpg",
+      url: "https://tinyurl.com/2k5bwfzu",
       preview: false
     },
    ])
