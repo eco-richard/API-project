@@ -1,5 +1,5 @@
 const express = require('express');
-
+const { check } = require('express-validator');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
@@ -39,7 +39,7 @@ router.post(
           "message": "User already exists",
           "statusCode": 403,
           "errors": {
-            "email": "User with that username already exists"
+            "username": "User with that username already exists"
           }
         })
       }

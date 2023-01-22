@@ -2,3 +2,31 @@
 .spot-show-header-wrapper {
     width: 100%
 }
+
+.spot-show-header-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edit-spot-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-spot-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-spot-button:hover {
+    color: white;
+    background-color: rgb(245, 90, 130);
+}
+
+.delete-spot-button:hover {
+    color: white;
+    background-color: rgb(245, 90, 130);
+}

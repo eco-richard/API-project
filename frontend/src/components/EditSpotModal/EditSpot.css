@@ -31,5 +31,17 @@
     margin: 30px auto;
     border-style: none;
     border-radius: 5px;
-    
+    cursor: pointer;
+}
+
+.edit-spot-form-header p {
+    display: grid;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: 700;
+    font-size: 24px;
+    place-items: center;
+    align-self: center;
 }

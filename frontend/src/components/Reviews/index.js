@@ -17,7 +17,6 @@ const Review = ({spotId}) => {
     let reviews = useSelector(state => state.reviews.spot);
     reviews = Object.values(reviews);
     const spot = useSelector(state => state.spots.singleSpot);
-    // console.log("Reviews: ", reviews);
     
     useEffect(() => {
         dispatch(getSpotReviews(spotId));
@@ -71,77 +70,8 @@ const Review = ({spotId}) => {
                     spotId={spotId} />
                 ))}
             </div>
-            {sessionUser && sessionUser.id !== +spot.ownerId && (<OpenModalButton
-                buttonText="Add a Review"
-                modalComponent={<CreateReviewModal spotId={spot.id} />}
-                onButtonClick={closeModal}
-                />
-            )}
         </div>
     );
-//     const dispatch = useDispatch();
-//     const { closeModal } = useModal();
-//     const sessionUser = useSelector(state => state.session.user);
-//     const reviews = Object.values(useSelector(state => state.reviews.spot));
-//     const spot = useSelector(state => state.spots.singleSpot);
-//     let avgRating;
-//     let sum = 0;
-//     let reviewCounter = 0;
-    
-//     // const spot = useSelector(state => state.spots.singleSpot);
-//     // console.log("Review Obj: ", reviewsObj);
-//     useEffect(() => {
-//         dispatch(getSpotReviews(spotId));
-//     }, [dispatch])
-
-//     // const reviews = Object.values(reviewsObj);
-//     console.log("reviews: ", reviews)
-
-//     for (let review of reviews) {
-//         console.log(review);
-//         if (review.spotId === +spot.id) {
-//             sum += review.stars;
-//             reviewCounter++;
-//         }
-//     }
-
-//     avgRating = reviewCounter === 0 ? 0 : sum / reviewCounter;
-//     return (
-//         <>
-//         <div className="review-header">
-//             <i className="fa-regular fa-star"></i>{avgRating.toFixed(2)} · {reviewCounter} review{reviewCounter === 1 ? "" : 's'}
-//         </div>
-//         <hr />
-//         {reviews.map((review) => (
-//             <div key={review.id} className="review-box">
-//                 <div className="reviewer-name">
-//                     {review.User.firstName}
-//                 </div>
-//                 <div className="review-date">
-//                     December 2022
-//                 </div>
-//                 <div className="review-text">
-//                     {review.review}
-//                 </div>
-//                 {review.User.id === +sessionUser.id && 
-//                 (<div className="delete-review-button">
-//                     <OpenModalButton
-//                     buttonText="Delete Review"
-//                     modalComponent={<DeleteReviewModal reviewId={review.id} />}
-//                     onButtonClick={closeModal}
-//                     />
-//                 </div>)}
-//             </div>
-//             )
-//         )}
-//         {sessionUser && sessionUser.id !== +spot.ownerId && (<OpenModalButton
-//         buttonText="Add a Review"
-//         modalComponent={<CreateReviewModal spotId={spot.id} />}
-//         onButtonClick={closeModal}
-//         /> )}
-//         </>
-//     )
-// }
 }
 
 export default Review;

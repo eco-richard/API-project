@@ -57,7 +57,6 @@ export function addReview(review, spotId) {
 
 export function deleteReview({reviewId}) {
     return async (dispatch) => {
-        console.log("Review ID: ", reviewId);
         const res = await csrfFetch(`/api/reviews/${reviewId}`, {
             method: "DELETE"
         })

@@ -9,7 +9,7 @@ export default function SpotItem({ spot }) {
 
     const spotCardReview = spot.avgRating === null ? null : (
         <div className="spot-card-review">
-            <i className="fa-solid fa-star" />{(Math.round(spot.avgRating * 100) / 100).toFixed(2)}
+            <i className="fa-solid fa-star fa-sm" />{(Math.round(spot.avgRating * 100) / 100).toFixed(2)}
         </div>
     )
     return (

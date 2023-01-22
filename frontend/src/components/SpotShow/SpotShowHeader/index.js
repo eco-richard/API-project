@@ -6,7 +6,6 @@ import './SpotShowHeader.css'
 
 function SpotShowHeader({ spot }) {
     const sessionUser = useSelector(state => state.session.user)
-    console.log("Spot: ", spot);
 
     const ratingContent = spot.avgStarRating === null ? (
         <>No reviews yet </>
@@ -22,13 +21,10 @@ function SpotShowHeader({ spot }) {
                 <h1>{spot.name}</h1>
             </div>
             <div className="spot-show-header-info">
-                <span className="header-reviews-locale">
-                    {ratingContent}
+                <div className="header-reviews-locale">
+                    {ratingContent} · {`${spot.city}, ${spot.state}, ${spot.country}`}
                     {/* {spot.avgRating && <i className="fa-solid fa-star"></i> {averageRating}} */}
-                </span>
-                <span className="header-location">
-                · {`${spot.city}, ${spot.state}, ${spot.country}`}
-                </span>
+                </div>
                 {sessionUser && sessionUser.id === spot.ownerId && (
                     <div className="spot-owner-buttons">
                         <OpenModalButton

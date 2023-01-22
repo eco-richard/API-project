@@ -49,16 +49,18 @@ function SpotFormModal() {
         }, previewImgUrl));
         closeModal();
 
-        console.log("NewSpot:", newSpot);
         history.push(`/spots/${newSpot.id}`);
     }
 
     return (
-        <>
+        <div className="create-spot-form-wrapper">
+        <div className="create-form-header">
+          <button className="close-out-button" onClick={closeModal}>
+              <i className="fa-solid fa-x"></i>
+            </button>
+            <p>Create a Spot</p>
+        </div>
         <form onSubmit={handleSubmit} className="create-spot-form">
-          <div className="create-spot-form-header">
-            <span>Create a Spot</span>
-          </div>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
@@ -102,24 +104,6 @@ function SpotFormModal() {
                   placeholder="Country"
                 />
             </label>
-            {/* <label>
-                Latitude
-                <input
-                  type="number"
-                  value={lat}
-                  onChange={e => setLat(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
-                Longitude
-                <input
-                  type="number"
-                  value={lng}
-                  onChange={e => setLng(e.target.value)}
-                  required
-                />
-            </label> */}
             <label>
                 <input
                   className="form-field"
@@ -162,7 +146,7 @@ function SpotFormModal() {
             </label>
             <button type="submit" className="spot-submit-button">Create</button>
         </form>
-        </>
+        </div>
     )
 }
 
