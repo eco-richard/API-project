@@ -22,7 +22,6 @@ function SignupFormModal() {
       return dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
         .catch(async (res) => {
           const data = await res.json();
-          // console.log('')
           if (data && data.errors) setErrors(Object.values(data.errors));
         });
     }

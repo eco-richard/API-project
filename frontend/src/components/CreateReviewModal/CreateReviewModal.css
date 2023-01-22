@@ -2,7 +2,7 @@
 .review-form-wrapper {
     display: flex;
     flex-direction: column;
-    height: 330px;
+    height: 350px;
     width: 350px;
     margin: 10px;
 }

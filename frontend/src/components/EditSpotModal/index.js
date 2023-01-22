@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
+import { getSingleSpot, updateSpot } from "../../store/spots";
 
-import { updateSpot } from "../../store/spots";
 import './EditSpot.css'
 const EditSpotModal = () => {
     const dispatch = useDispatch();
@@ -12,7 +12,6 @@ const EditSpotModal = () => {
 
     const spotObj = useSelector(state => state.spots);
     const spot = spotObj.singleSpot;
-
     const [address, setAddress] = useState(spot.address);
     const [city, setCity] = useState(spot.city);
     const [state, setState] = useState(spot.state);
@@ -41,15 +40,18 @@ const EditSpotModal = () => {
         }, spot.id))
 
         closeModal();
+        // dispatch(getSingleSpot(spot.id))
     }
 
     return (
-      <>
+      <div className="edit-spot-form-wrapper">
+        <div className="edit-spot-form-header">
+          <button className="close-out-button" onClick={closeModal}>
+            <i className="fa-solid fa-x"></i>
+          </button>
+          <p>Update Spot</p>
+        </div>
         <form onSubmit={handleSubmit} className="edit-spot-form">
-          <div className="edits-spot-form-header">
-            <img src="https://www.vhv.rs/dpng/d/487-4871907_grey-x-icon-png-transparent-png.png" height="20px" weight="20px" alt="x" onClick={() => closeModal()} />
-            <span>Modify Spot</span>
-          </div>
             <ul>
                 {errors.map((error, index) => <li key={index}>error</li>)}
             </ul>
@@ -113,24 +115,6 @@ const EditSpotModal = () => {
                   placeholder="Description"
                 />
             </label>
-            {/* <label>
-                Latitude
-                <input
-                  type="number"
-                  value={lat}
-                  onChange={e => setLat(e.target.value)}
-                  required
-                />
-            </label>
-            <label>
-                Longitude
-                <input
-                  type="number"
-                  value={lng}
-                  onChange={e => setLng(e.target.value)}
-                  required
-                />
-            </label> */}
             <label>
                 <input
                 className="form-field"
@@ -141,9 +125,19 @@ const EditSpotModal = () => {
                   placeholder="Price per night"
                 />
             </label>
+            {/* <label>
+                <input
+                 className="form-field"
+                 type="url"
+                 value={previewImgUrl}
+                 onChange={e => setPreviewImgUrl(e.target.value)}
+                 required
+                 placeholder="Image URL"
+                 />
+            </label> */}
             <button type="submit" className="spot-submit-button">Submit</button>
         </form>
-        </>
+        </div>
     )
 }
 

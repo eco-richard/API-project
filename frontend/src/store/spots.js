@@ -99,9 +99,15 @@ export function updateSpot(spotData, spotId) {
         })
 
         if (res.ok) {
-            const spot = await res.json();
-            dispatch(update(spot))
-            return spot;
+            const spotInfoResponse = await csrfFetch(`/api/spots/${spotId}`);
+            if (spotInfoResponse.ok) {
+                const spot = await spotInfoResponse.json();
+                dispatch(update(spot));
+            }
+            // const imgObject = {url: imgUrl, preview: true};
+            // dispatch(update(spot))
+            // dispatch(getSingleSpot(spot.id))
+            // return spot;
         }
     }
 }
