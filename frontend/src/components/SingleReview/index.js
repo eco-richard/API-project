@@ -16,7 +16,7 @@ function SingleReview({review, sessionUser, spotId}) {
     )
 
     let deleteReviewContent = null;
-    if (user.id === review.userId) {
+    if (user?.id === review.userId) {
         deleteReviewContent = (
             <div className="delete-review-div">
                 <OpenModalButton

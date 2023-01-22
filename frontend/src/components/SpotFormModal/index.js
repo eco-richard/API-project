@@ -29,27 +29,46 @@ function SpotFormModal() {
         e.preventDefault();
 
         // Validation Checking:
-        if (name === "") {
-            return setErrors(["A name must be provided."])
+        const newErrors = []; 
+
+        if (name.length < 2) {
+          newErrors.push("Name is too short, should be atleast 2 characters.")
         }
-
-        // Others:
-
-        setErrors([]);
-        const newSpot = await dispatch(spotActions.addSpot({
-          name, 
-          description,
-          address, 
-          city, 
-          state, 
-          country, 
-          lat: 100, 
-          lng: 100,
-          price 
-        }, previewImgUrl));
-        closeModal();
-
-        history.push(`/spots/${newSpot.id}`);
+        if (description.length < 2) {
+          newErrors.push("Description is too short, should be atleast 2 characters.")
+        }
+        if (address.length < 2) {
+          newErrors.push("Address is too short, should be atleast 2 characters.")
+        }
+        if (city.length < 2) {
+          newErrors.push("City is too short, should be atleast 2 characters.")
+        }
+        if (state.length < 2) {
+          newErrors.push("State is too short, should be atleast 2 characters.")
+        }
+        if (country.length < 2) {
+          newErrors.push("Country is too short, should be atleast 2 characters.")
+        }
+        if (+price === 0) {
+          newErrors.push("Free housing? Not under my captialism.")
+        }
+        setErrors(newErrors);
+        if (newErrors.length === 0) {
+          const newSpot = await dispatch(spotActions.addSpot({
+            name, 
+            description,
+            address, 
+            city, 
+            state, 
+            country, 
+            lat: 100, 
+            lng: 100,
+            price 
+          }, previewImgUrl));
+          closeModal();
+  
+          history.push(`/spots/${newSpot.id}`);
+        }
     }
 
     return (

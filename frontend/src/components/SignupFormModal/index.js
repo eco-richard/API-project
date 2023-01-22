@@ -17,15 +17,46 @@ function SignupFormModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+
+    // Frontend Validations
+    const validationErrors = [];
+    if (!isEmail(email)) {
+      validationErrors.push("Email must be a valid email.");
+    }
+
+    if (username.length < 4 || username.length > 30) {
+      validationErrors.push("Username must be between 4 and 30 characters.")
+    }
+
+    if (firstName.length < 3) {
+      validationErrors.push("First name is too short.")
+    }
+
+    if (lastName.length < 3) {
+      validationErrors.push("Last name is too short.")
+    }
+
+    if (password.length < 5) {
+      validationErrors.push("Password must be at least 5 characters.")
+    }
+
+    if (password !== confirmPassword) {
+      validationErrors.push("Confirm Password field must be the same as the Password field")
+    }
+
+    if (validationErrors.length > 0) {
+      return setErrors(validationErrors);
+    }
+
+    if (password === confirmPassword && validationErrors.length === 0) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(Object.values(data.errors));
-        });
+        }).then(closeModal);
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors(validationErrors);
   }
 
   return (
@@ -49,7 +80,7 @@ function SignupFormModal() {
           <input
             className="form-field-1"
             placeholder="Email"
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -108,5 +139,14 @@ function SignupFormModal() {
   )
 }
 
-
 export default SignupFormModal;
+
+function isEmail(email) {
+  if (email.indexOf('@') === -1) {
+    return false;
+  }
+  if (email.indexOf('.') === -1) {
+    return false;
+  }
+  return true;
+}
