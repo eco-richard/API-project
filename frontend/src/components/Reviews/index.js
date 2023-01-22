@@ -42,25 +42,6 @@ const Review = ({spotId}) => {
 
     return (
         <div className="reviews-wrapper">
-            <div className="reviews-header">
-                {reviews.length > 0 && reviews.length < 3 ? (
-                    <div className="reviews-head">
-                        <h2>
-                            {reviews.length} {reviews.length === 1 ? "review" : "reviews"}
-                        </h2>
-                        <p>
-                            Average ratings will appear after 3 reviews.
-                        </p>
-                    </div>
-                ) : (
-                    <div className="reviews-head">
-                        <h2>
-                            <i className="fa-regular fa-star" />
-                            {(Math.round((avgRating * 100) / 100)).toFixed(2)} · {reviewCounter} reviews
-                        </h2>
-                    </div>
-                )}
-            </div>
             <div className="reviews-body">
                 {reviews.map((review) => (
                     <SingleReview 

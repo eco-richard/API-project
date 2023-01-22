@@ -36,19 +36,21 @@ const CreateReviewModal = ({spotId}) => {
         }
 
         if (review.length <= 3) {
-            errors.push("Is that really all you have to say?")
+            newErrors.push("Is that really all you have to say?")
         }
 
         if (!stars) {
-            errors.push("Please give it a rating of 1 to 5 stars.")
+            newErrors.push("Please give it a rating of 1 to 5 stars.")
         }
         setErrors(newErrors);
-        await dispatch(addReview({
-            review,
-            stars
-        }, spotId)).then(closeModal)
-        await dispatch(getSpotReviews(spotId))
-        await dispatch(getSingleSpot(spot.id));
+        if (newErrors.length === 0 ) {
+            await dispatch(addReview({
+                review,
+                stars
+            }, spotId)).then(closeModal)
+            await dispatch(getSpotReviews(spotId))
+            await dispatch(getSingleSpot(spot.id));
+        }
         // // history.replace(`/`);
         // setTimeout(() => history.push(`/spots/${spotId}`), 100);
     }

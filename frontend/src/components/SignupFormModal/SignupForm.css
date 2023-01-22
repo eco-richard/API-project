@@ -54,7 +54,8 @@
     border-style: none;
     border-radius: 5px;
     color: white;
-    background-color: rgb(245, 90, 130);   
+    background-color: rgb(245, 90, 130);
+    cursor: pointer; 
 }
 
 .login-form-title-wrapper {

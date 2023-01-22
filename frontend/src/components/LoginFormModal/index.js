@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
+
 
 import './LoginForm.css';
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const location = useLocation();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +17,7 @@ function LoginFormModal() {
   const { closeModal } = useModal();
 
   if (sessionUser) return (
-    <Redirect to="/" />
+    <Redirect to={location} />
   );
 
   const handleSubmit = (e) => {
