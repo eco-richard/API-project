@@ -45,16 +45,19 @@ function SignupFormModal() {
     }
 
     if (validationErrors.length > 0) {
-      return setErrors(validationErrors);
+      setErrors(validationErrors);
     }
 
     if (password === confirmPassword && validationErrors.length === 0) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
+        .then(closeModal)
         .catch(async (res) => {
           const data = await res.json();
-          if (data && data.errors) setErrors(Object.values(data.errors));
-        }).then(closeModal);
+          if (data && data.errors) {
+            setErrors(Object.values(data.errors));
+          }
+        });
     }
     return setErrors(validationErrors);
   }
