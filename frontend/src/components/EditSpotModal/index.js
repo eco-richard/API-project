@@ -81,7 +81,7 @@ const EditSpotModal = () => {
         </div>
         <form onSubmit={handleSubmit} className="edit-spot-form">
             <ul>
-                {errors.map((error, index) => <li key={index}>error</li>)}
+                {errors.map((error, index) => <li key={index}>{error}</li>)}
             </ul>
             <label>
                 <input
