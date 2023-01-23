@@ -86,22 +86,22 @@ module.exports = {
     },
     {
       spotId: 3,
-      url: "https://tinyurl.com/2k5bwfzu",
+      url: "https://i.ibb.co/k4rq1S9/castle-non-preview.jpg",
       preview: false
     },
     {
       spotId: 3,
-      url: "https://tinyurl.com/2k5bwfzu",
+      url: "https://i.ibb.co/k4rq1S9/castle-non-preview.jpg",
       preview: false
     },
     {
       spotId: 3,
-      url: "https://tinyurl.com/2k5bwfzu",
+      url: "https://i.ibb.co/k4rq1S9/castle-non-preview.jpg",
       preview: false
     },
     {
       spotId: 3,
-      url: "https://tinyurl.com/2k5bwfzu",
+      url: "https://i.ibb.co/k4rq1S9/castle-non-preview.jpg",
       preview: false
     },
    ])
