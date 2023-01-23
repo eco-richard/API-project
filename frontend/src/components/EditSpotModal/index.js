@@ -27,19 +27,47 @@ const EditSpotModal = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await dispatch(updateSpot({
-            name,
-            description, 
-            address, 
-            city,
-            state, 
-            country,
-            lat: 100,
-            lng: 100,
-            price
-        }, spot.id))
+        // Validation Checking:
+        const newErrors = []; 
 
-        closeModal();
+        if (name.length < 2) {
+          newErrors.push("Name is too short, should be at least 2 characters.")
+        }
+        if (description.length < 2) {
+          newErrors.push("Description is too short, should be at least 2 characters.")
+        }
+        if (address.length < 2) {
+          newErrors.push("Address is too short, should be at least 2 characters.")
+        }
+        if (city.length < 2) {
+          newErrors.push("City is too short, should be at least 2 characters.")
+        }
+        if (state.length < 2) {
+          newErrors.push("State is too short, should be at least 2 characters.")
+        }
+        if (country.length < 2) {
+          newErrors.push("Country is too short, should be at least 2 characters.")
+        }
+        if (+price === 0) {
+          newErrors.push("Free housing?")
+        }
+        setErrors(newErrors);
+
+        if (newErrors.length === 0) {
+          await dispatch(updateSpot({
+              name,
+              description, 
+              address, 
+              city,
+              state, 
+              country,
+              lat: 100,
+              lng: 100,
+              price
+          }, spot.id))
+
+          closeModal();
+        }
         // dispatch(getSingleSpot(spot.id))
     }
 
