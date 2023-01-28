@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Navigation from "./components/Navigation";
 import Spots from "./components/Spots";
 import SpotShow from "./components/SpotShow";
+import UserProfile from "./components/UserProfile";
 
 import * as sessionActions from "./store/session"
 
@@ -24,6 +25,7 @@ function App() {
     <Switch>
       <Route exact path="/" component={Spots} />
       <Route exact path="/spots/:spotId" component={SpotShow} />
+      <Route path="/user" component={UserProfile} />
     </Switch>
     )}
     </>
