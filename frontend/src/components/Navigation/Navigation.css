@@ -163,6 +163,11 @@ i {
 .dropdown-username {
     padding: 10px 0px;
     padding-left: 8px;
+    text-decoration: none;
+}
+
+.dropdown-username:hover {
+    text-decoration: underline;
 }
 
 .dropdown-fullname {

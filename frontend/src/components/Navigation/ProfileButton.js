@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../Users/LoginFormModal';
@@ -52,7 +53,9 @@ function ProfileButton({ user }) {
           {user && user.id ? (
             <>
               <div className="dropdown-username">
-                <li>{user.username}</li>
+                <Link to={`/user`}>
+                  <li>{user.username}</li>
+                </Link>
               </div>
               <div className="dropdown-fullname">
               <li>{user.firstName} {user.lastName}</li>
