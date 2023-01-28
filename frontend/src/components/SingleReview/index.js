@@ -2,6 +2,7 @@ import React from "react"
 import OpenModalButton from "../OpenModalButton"
 import DeleteReviewModal from "../DeleteReviewModal"
 import CreateReviewModal from "../CreateReviewModal"
+import EditReviewModal from "../EditReviewModal"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 import './SingleReview.css'
@@ -19,6 +20,11 @@ function SingleReview({review, sessionUser, spotId}) {
     if (user?.id === review.userId) {
         deleteReviewContent = (
             <div className="delete-review-div">
+                <OpenModalButton
+                    modalComponent={<EditReviewModal spotId={review.spotId} review={review} />}
+                    buttonText="Edit Review"
+                    onButtonClick={closeModal}
+                />
                 <OpenModalButton
                     modalComponent={<DeleteReviewModal reviewId={review.id} />}
                     buttonText="Delete Review"

@@ -413,6 +413,35 @@ router.post("/:spotId/reviews", /*requireAuth */ async (req, res) => {
     res.json(newReview);
 })
 
+// Edit a review
+router.put("/:spotId/reviews/:reviewId", requireAuth, async (req, res) => {
+    const { review, stars } = req.body;
+
+    if (!review) {
+        console.log('Error');
+    }
+    if (!stars || stars > 5 || stars < 1) {
+        console.log("Error");
+    }
+
+    const currentReview = await Review.findByPk(req.params.reviewId);
+
+    if (!currentReview) {
+        res.status(404);
+        res.json({
+            "message": "Review couldn't be found",
+            "statusCode": 404
+        })
+    }
+
+    currentReview.update({
+        review,
+        stars
+    })
+
+    res.json(currentReview);
+})
+
 // Bookings Endpoints
 router.get("/:spotId/bookings", requireAuth, async (req, res) => {
     const spot = await Spot.findByPk(req.params.spotId);

@@ -10,35 +10,17 @@ import { useModal } from "../../context/Modal"
 import SingleReview from "../SingleReview";
 import './Reviews.css'
 const Review = ({spotId}) => {
-
     const dispatch = useDispatch();
     const { closeModal } = useModal();
     const sessionUser = useSelector(state => state.session.user);
     let reviews = useSelector(state => state.reviews.spot);
     reviews = Object.values(reviews);
+    console.log("Reviews: ", reviews);
     const spot = useSelector(state => state.spots.singleSpot);
     
     useEffect(() => {
         dispatch(getSpotReviews(spotId));
     }, [dispatch])
-
-    let sum = 0;
-    let reviewCounter = 0;
-    let avgRating;
-    for (let review of reviews) {
-        if (review.spotId === +spot.id) {
-            sum += review.stars;
-            reviewCounter++;
-        }
-    }
-    avgRating = reviewCounter === 0 ? 0 : sum / reviewCounter;
-    // if (reviews.length === 0) {
-    //     return (
-    //         <div className="no-reviews">
-    //             <p>Seems this spot has yet to be reviewed</p>
-    //         </div>
-    //     )
-    // }
 
     return (
         <div className="reviews-wrapper">
