@@ -58,4 +58,18 @@ router.post(
     }
 );
 
+router.get(
+  `/all-users`,
+  async (req, res) => {
+    const usersResponse = await User.findAll();
+
+    const users = [];
+    usersResponse.forEach(user => {
+      users.push(user.toJSON())
+    })
+    console.log("Users: ", users);
+    return res.json({"Users": users})
+  }
+);
+
 module.exports = router;
