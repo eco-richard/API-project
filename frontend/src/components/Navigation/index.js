@@ -5,10 +5,10 @@ import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import ProfileButton from "./ProfileButton";
-import OpenModalButton from "../OpenModalButton";
-import SpotFormModal from "../SpotFormModal";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+import OpenModalButton from "../OpenModalButton"
+import SpotFormModal from "../Spots/SpotFormModal"
+import LoginFormModal from "../Users/LoginFormModal";
+import SignupFormModal from "../Users/SignupFormModal";
 import Logo from "../../images/logo.png";
 
 import "./Navigation.css"

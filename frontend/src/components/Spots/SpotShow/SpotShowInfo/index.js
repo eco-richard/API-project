@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import OpenModalButton from "../../OpenModalButton";
-import CreateReviewModal from "../../CreateReviewModal";
-import { useModal } from "../../../context/Modal";
-import Review from "../../Reviews";
+import OpenModalButton from "../../../OpenModalButton";
+import CreateReviewModal from "../../../Reviews/CreateReviewModal"
+import { useModal } from "../../../../context/Modal";
+import Review from "../../../Reviews/Reviews";
 import PriceBox from "../PriceBox";
 import './SpotShowInfo.css'
 

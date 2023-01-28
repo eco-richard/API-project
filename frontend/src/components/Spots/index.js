@@ -1,7 +1,7 @@
 // import React from "react";
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import SpotItem from "../SpotItem";
+import SpotItem from "./SpotItem";
 import { getSpots } from '../../store/spots';
 import "./Spots.css"
 

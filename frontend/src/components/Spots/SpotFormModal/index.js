@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
-import * as spotActions from "../../store/spots"
+import * as sessionActions from "../../../store/session"
+import { addSpot } from "../../../store/spots";
 import { useDispatch, useSelector } from "react-redux";
-import { useModal } from "../../context/Modal";
+import { useModal } from "../../../context/Modal";
 import { useHistory } from "react-router-dom";
 import './SpotForm.css'
 
@@ -54,7 +54,7 @@ function SpotFormModal() {
         }
         setErrors(newErrors);
         if (newErrors.length === 0) {
-          const newSpot = await dispatch(spotActions.addSpot({
+          const newSpot = await dispatch(addSpot({
             name, 
             description,
             address, 

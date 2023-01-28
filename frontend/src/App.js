@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from 'react-router-dom';
 import Navigation from "./components/Navigation";
-import Spots from "./components/Spots";
-import SpotShow from "./components/SpotShow";
-import UserProfile from "./components/UserProfile";
+import Spots from "./components/Spots/";
+import SpotShow from "./components/Spots/SpotShow";
+import UserProfile from "./components/Users/UserProfile";
 
 import * as sessionActions from "./store/session"
 

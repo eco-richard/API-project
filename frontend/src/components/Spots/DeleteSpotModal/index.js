@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
-import { useModal } from "../../context/Modal";
+import { useModal } from "../../../context/Modal";
 
-import { getSingleSpot } from "../../store/spots";
-import { deleteSpot } from "../../store/spots";
+import { getSingleSpot } from "../../../store/spots";
+import { deleteSpot } from "../../../store/spots";
 import './DeleteSpot.css'
 const DeleteSpotModal = ({spotId}) => {
     const dispatch = useDispatch();
