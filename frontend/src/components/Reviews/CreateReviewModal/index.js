@@ -1,14 +1,13 @@
 import React from "react"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Redirect, useHistory } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import { addReview, getSpotReviews } from "../../../store/review";
 import { getSingleSpot } from "../../../store/spots";
 import './CreateReviewModal.css'
+
 const CreateReviewModal = ({spotId}) => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const reviewsObj = useSelector(state => state.reviews.spot);
     const reviews = Object.values(reviewsObj);
     const user = useSelector(state => state.session.user);
