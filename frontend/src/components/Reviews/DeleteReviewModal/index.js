@@ -3,10 +3,10 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
-import { useModal } from "../../context/Modal";
+import { useModal } from "../../../context/Modal";
 
-import { getSingleSpot } from "../../store/spots";
-import { deleteReview } from "../../store/review";
+import { getSingleSpot } from "../../../store/spots";
+import { deleteReview } from "../../../store/review";
 import './DeleteReviewModal.css';
 
 const DeleteReviewModal = (reviewId) => {

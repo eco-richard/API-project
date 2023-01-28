@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
-import { useModal } from "../../context/Modal";
-import { getSingleSpot, updateSpot } from "../../store/spots";
+import { useModal } from "../../../context/Modal";
+import { getSingleSpot, updateSpot } from "../../../store/spots";
 
 import './EditSpot.css'
 const EditSpotModal = () => {

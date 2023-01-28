@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import OpenModalButton from "../../OpenModalButton";
+import OpenModalButton from "../../../OpenModalButton";
 import EditSpotModal from "../../EditSpotModal";
 import DeleteSpotModal from "../../DeleteSpotModal";
 import './SpotShowHeader.css'

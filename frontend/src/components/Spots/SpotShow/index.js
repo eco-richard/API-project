@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getSingleSpot } from "../../store/spots";
+import { getSingleSpot } from "../../../store/spots";
 import SpotShowHeader from "./SpotShowHeader";
 import SpotShowImages from "./SpotShowImages";
 import SpotShowInfo from "./SpotShowInfo";

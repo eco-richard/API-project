@@ -2,9 +2,9 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect, useHistory } from "react-router-dom";
-import { useModal } from "../../context/Modal";
-import { addReview, getSpotReviews } from "../../store/review";
-import { getSingleSpot } from "../../store/spots";
+import { useModal } from "../../../context/Modal";
+import { addReview, getSpotReviews } from "../../../store/review";
+import { getSingleSpot } from "../../../store/spots";
 import './CreateReviewModal.css'
 const CreateReviewModal = ({spotId}) => {
     const dispatch = useDispatch();

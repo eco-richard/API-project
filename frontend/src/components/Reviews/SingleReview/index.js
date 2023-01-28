@@ -1,9 +1,9 @@
 import React from "react"
-import OpenModalButton from "../OpenModalButton"
+import OpenModalButton from "../../OpenModalButton"
 import DeleteReviewModal from "../DeleteReviewModal"
 import CreateReviewModal from "../CreateReviewModal"
 import EditReviewModal from "../EditReviewModal"
-import { useModal } from "../../context/Modal"
+import { useModal } from "../../../context/Modal"
 import { useSelector } from "react-redux"
 import './SingleReview.css'
 
