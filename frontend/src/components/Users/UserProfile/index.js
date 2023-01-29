@@ -2,6 +2,7 @@
 import './UserProfile.css'
 
 function UserProfile() {
+    console.log("At USER PROFILE!!")
     return (
         <div className='user-profile-wrapper'>
         <div className='user-profile-info-wrapper'>
