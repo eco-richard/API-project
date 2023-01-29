@@ -1,7 +1,7 @@
 const express = require('express');
 const { check } = require('express-validator');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Spot, Review, Booking } = require('../../db/models');
 
 const router = express.Router();
 
@@ -58,6 +58,7 @@ router.post(
     }
 );
 
+// Get all users
 router.get(
   `/all-users`,
   async (req, res) => {
@@ -71,5 +72,37 @@ router.get(
     return res.json({"Users": users})
   }
 );
+
+// Get Details of User (Spots, Reviews, Bookings)
+router.get(
+  `/user-details/:userId`,
+  async (req, res) => {
+    // Get user details from the id:
+    let user = await User.findByPk(req.params.userId);
+
+    if (!user) {
+      res.status(404);
+      return res.json({
+        message: "User could not be found",
+        statusCode: 404
+      })     
+    }
+    user = user.toJSON();
+    // user.Spots = [];
+    // user.Reviews = [];
+    // user.Bookings = [];
+    // let userSpots = await Spot.findAll({
+    //   where: {
+    //     ownerId: user.id
+    //   }
+    // })
+    // userSpots.forEach(spot => {
+    //   user.Spots.push(spot.toJSON());
+    // })
+
+    res.status(200);
+    return res.json({"User": user}); 
+  }
+)
 
 module.exports = router;

@@ -12,7 +12,7 @@ import { getAllUsers } from "./store/users";
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
-  const users = useSelector(state => state.users) || [];
+  const users = useSelector(state => state.users.allUsers);
   let notCurrentUsers = [];
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -40,9 +40,13 @@ function App() {
     <Switch>
       <Route exact path="/" component={Spots} />
       <Route exact path="/spots/:spotId" component={SpotShow} />
-      <Route path="/user" component={UserProfile} />
+      <Route path="/user">
+        <UserProfile user={sessionUser} />
+      </Route>
       {notCurrentUsers.map(user => (
-        <Route key={user.id} exact path={`/@${user.username}`} component={UserProfile} />
+        <Route key={user.id} exact path={`/@${user.username}`}>
+          <UserProfile user={user} />
+        </Route> 
       ))}
     </Switch>
     )}
